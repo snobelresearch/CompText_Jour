@@ -71,9 +71,9 @@ Janitor: Data cleaning
 **Below, remove the hash tags \# and run the chunk**
 
 ```{r}
-#install.packages("tidyverse")
-#install.packages("rio")
-#install.packages("janitor")
+install.packages("tidyverse")
+install.packages("rio")
+install.packages("janitor")
 ```
 
 After you install a package on your hard drive, you bring the software
@@ -251,13 +251,10 @@ Better idea: Check Averages!
 #Using the example code above, create a column called Avg_Salary and use the mean command to produce the calculation
 #Adapt the code below to do this:
 
-# MediaBucks %>% 
-#   select(Gender, Salary) %>% 
-#   group_by(Gender) %>% 
-#   summarize(Total = sum(Salary, na.rm=TRUE))
-
-
-
+MediaBucks %>% 
+ select(Gender, Salary) %>% 
+ group_by(Gender) %>% 
+summarize(Avg_Salary = mean(Salary, na.rm=TRUE))
 ```
 
 Quick filter out hourly workers
@@ -269,11 +266,26 @@ MediaSalary <- MediaBucks %>%
 
 Questions:
 
-```         
-1: View the range of your salary data    
-2: Number of rows  
-3: Number of rows cut with filter of greater that 500 
+1: View the range of your salary data
+
+```{r}
+summary(MediaSalary$Salary)
 ```
+
+2: Number of rows
+
+```{r}
+nrow(MediaSalary)
+```
+
+3: Number of rows cut with filter of greater that 500 
+
+```{r}
+MediaSalary500 <- MediaSalary %>% 
+  filter(Salary > 1000)
+nrow(MediaSalary500)
+```
+nrow(MediaSalary500)
 
 <br>
 
@@ -309,30 +321,44 @@ Questions
 ```
 
 ```{r}
-#1: Build a table for NewYorkTimes employees   
-
-
+#1: Build a table for NewYorkTimes employees 
+NYT <- subset(MediaBucks, grepl("?NewYorkTimes", COMPANY))
+NYT <- subset(MediaBucks, COMPANY == "NewYorkTimes")
 ```
 
 ```{r}
 #2: Determine median salary of NewYorkTimes employees   
-
-
+median(NYT$Salary)
 ```
 
 ```{r}
 #3: Identify title, gender and race of the highest paid position at NYT  
-
-
+NYT <- NYT %>%
+  arrange(desc(Salary)) %>%
+  select(TITLE, Gender, Race) %>%
+  head(1)
 ```
 
 ```{r}
 #4: Build a table that filters "Business" in the Company column. Determine Summary of the Salary column.
 #Build a second table that filters "Bloomberg" in the Company column.  Determine Summary of the Salary column.
 
+Business_filter <- MediaBucks %>%
+  filter(grepl("?Business", COMPANY))
+summary(Business_filter$Salary)
+
+Bloomberg_filter <- MediaBucks %>%
+  filter(grepl("?Bloomberg", COMPANY))
+summary(Bloomberg_filter$Salary)
+
 #Which one is higher?
-
-
+business_filter_mean <- mean(Business_filter$Salary)
+bloomberg_filter_mean <- mean(Bloomberg_filter$Salary)
+if (business_filter_mean > bloomberg_filter_mean) {
+  print("Business is higher")
+}  else {
+  print ("Bloomberg is higher")
+}
 ```
 
 <br> \#### More Tables
@@ -353,12 +379,20 @@ summary(Reporters$Salary)
 Questions:
 
 ```         
-1: Who is making $230,504 as a reporter???   
+1: Who is making $230,504 as a reporter??? 
 2: Make a table for editors, figure out medians.   
 3: Find highest paid editor. Resent them.   
 4: Make a table for any position involving data  
 ```
-
+``` {r}
+# Who is making $230,504 as a reporter??? 
+Reporters %>%
+  filter(Salary == "230504")
+# Make a table for editors, figure out medians.
+Editors <- subset(MediaBucks, TITLE == "Editor")
+summary((Editors$Salary))
+median(Editors$Salary)
+```
 Table with Black reporters at Wall Street Journal
 
 ```{r}
