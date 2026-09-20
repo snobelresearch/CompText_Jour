@@ -1,0 +1,155 @@
+---
+title: "Metadata"
+author: "Wells"
+date: "2026-09-15"
+output: html_document
+---
+
+Class exercise to import your project metadata from the spreadsheet into R 
+
+--Create a folder called "class_project" in your code folder 
+
+--Save this file to the "class_project" folder 
+
+--Move your Nexis spreadsheet to the folder 
+
+--Create a project file on R Studio: File \| New Project \| \*\*\* select Existing folder \| "class_project" 
+
+--After project.Rproj launches, then launch this file, metadata.Rmd, and complete the tutorial
+
+**By doing this, you avoid the ring of hell where R can't find your data**
+
+#load tidyverse, janitor, rio
+
+```{r}
+
+library(tidyverse)
+library(janitor)
+library(rio)
+install.packages("readxl")
+library(readxl)
+
+```
+
+#Import your data
+
+```{r}
+
+data <- read_excel("SKN_Trust_Data.XLSX") |> 
+  #clean_names()
+View(data)
+
+```
+
+# Clean names
+
+```{r}
+data <- data |> 
+  clean_names()
+
+```
+
+# check data types
+```{r}
+glimpse(data)
+```
+
+
+Next Steps: Count years, and create a ggplot
+
+# Transform date into years. See tutorial
+```{r}
+
+data2 <- data |> 
+  mutate(year = year(published_date))
+
+```
+
+#year
+```{r}
+data2 |> 
+  count(year)
+```
+
+#Pulication
+```{r}
+data2 |> 
+  count(publication_4) |> 
+  arrange(desc(n))
+```
+
+
+#publication_location
+```{r}
+data2 |> 
+  count(publication_location) |> 
+  arrange(desc(n))
+```
+
+#length check
+```{r}
+#crate a numeric ength column
+
+data_lenghth <- data2 |> 
+  mutate(length_num = as.numeric(length)) |>
+  filter()
+```
+
+
+
+# Create a ggplot
+```{r}
+data2 |> 
+  count(year) |>
+   ggplot(aes(x = year, y = n,
+             fill = n)) +
+  geom_col(position = "dodge") + 
+  theme(legend.position = "none") +
+  scale_x_continuous(breaks=c(2021:2026)) + #fixes wonky x axis
+  labs(title = "Years for Coverage of Trust in Media",
+       subtitle = "Exercise NexisUni Run",
+       caption = "Graphic by Shahariar Nobel, 9-16-2026",
+       y="Number of Calls",
+       x="Year")
+
+
+
+```
+
+#Count publications
+
+```{r}
+data2 |> 
+  count(publication_4)
+```
+
+
+#Visualize publications
+
+```{r}
+data2 |> 
+  count(publication_4) |> 
+#ggplot(aes(x = publication_4, y = n,
+             #fill = n)) +
+  ggplot(aes(x = reorder(publication_4, n), y = n, fill = n)) +
+  geom_col(position = "dodge") + 
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  #scale_x_continuous(breaks=c(2021:2026)) + #fixes wonky x axis
+  coord_flip() +
+  labs(title = "Publications Covered Trust in Media",
+       subtitle = "Exercise NexisUni Run",
+       caption = "Graphic by Shahariar Nobel, 9-16-2026",
+       y="Number of Articles",
+       x="Year")
+```
+
+
+
+
+# NOTES ON FIXING COMPLEX Date COLUMN WITH HOURS AND MINUTES
+
+```{r}
+women <- women |> 
+  mutate(date = as.Date(strptime(published_date, format = "%B %d, %Y %A")))
+```
