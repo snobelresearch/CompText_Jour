@@ -1,0 +1,101 @@
+---
+title: "Basic_R_Proficiency_HW_Nobel"
+author: "Nobel"
+date: "2026-09-23"
+output: html_document
+---
+
+Homework: Basic R Proficiency
+
+# Load Libraries
+```{r}
+library(tidytext)
+library(tidyverse)
+```
+
+# Import Data
+```{r}
+mob_data <- rio::import("https://raw.githubusercontent.com/wellsdata/CompText_Jour/main/data/mob_analysis_data.csv")
+```
+
+My memo: 
+
+#Using code, describe the number of rows and columns in the data set
+
+```{r}
+nrow(mob_data)
+ncol(mob_data)
+```
+# There are 3836 rows and 7 columns in the data set
+
+
+#Create a table that displays a count of the top 15 newspaper entries
+```{r}
+Top_15_Newspaper_Entries <- mob_data |>
+  group_by(Newspaper) |> 
+  count(Newspaper) |>
+  arrange(desc(n)) |>
+  head(15)
+Top_15_Newspaper_Entries
+```
+# A tibble:15 × 2
+Groups:Newspaper [15]
+Newspaper
+<chr>
+n
+<int>
+NA	336			
+The Birmingham age-herald (Birmingham, Ala...)	118			
+The daily worker (Chicago, Ill.)	64			
+The Topeka state journal (Topeka, Kansas)	63			
+The sun (New York [N.Y.]) 1833-1916	50			
+The Seattle post-intelligencer (Seattle, Wash. ...)	49			
+The San Francisco call (San Francisco [...)	46			
+The morning news (Savannah, Ga.)	40			
+Los Angeles herald (Los Angeles [Calif.]) 1900-1911	37			
+Watertown republican (Watertown, Wis.)	36			
+River Falls journal (River Falls, Pi...)	34			
+Vernon County censor (Viroqua, Wis.)	30			
+The Iola register (Iola, Allen Cou...)	29			
+The Daily Ardmoreite (Ardmore, Okla.)	28			
+The Salt Lake herald (Salt Lake City ...)	28			
+#15 rows		
+
+#Create a table that counts the different entries in the "keyword" column
+
+```{r}
+Keywords <- mob_data |> 
+  group_by(keyword) |>
+  count(keyword) |> 
+  arrange(desc(n))
+Keywords
+```
+# There are 37 different entries in the keyword column; mob, masked and mobs are the top entries.
+
+
+# Create a table that counts all specific articles by year
+
+```{r}
+Years <- mob_data %>% 
+  group_by(Year) %>% 
+  count(Year) %>% 
+  arrange(desc(n))
+Years
+```
+# There are 110 different years in the data set. The top years by article count are 1903 with 246 articles, 1906 with 207 articles, and 1901 with 197 articles. 	
+
+# Create a simple column ggplot chart that shows the total entries by year
+
+```{r}
+ggplot(Years,aes(x = Year, y = n,
+             fill = n)) +
+  geom_col(position = "dodge") + 
+  theme(legend.position = "none") +
+  labs(title = "Total Entries of Articles by Year",
+       subtitle = "Mob Lynching Article Data, 1805-1955",
+       caption = "Graphic by Shahariar Nobel, 9-26-2026",
+       y="Number of Articles",
+       x="Year")
+```
+
+
