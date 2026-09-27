@@ -2,7 +2,9 @@
 title: "Basic_R_Proficiency_HW_Nobel"
 author: "Nobel"
 date: "2026-09-23"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 Homework: Basic R Proficiency
@@ -97,5 +99,9 @@ ggplot(Years,aes(x = Year, y = n,
        y="Number of Articles",
        x="Year")
 ```
+# The memo
+Based on the analysis of the mob lynching data set, it contains 3,836 rows and 7 columns. The newspaper columns show a collection of articles coming from many different publications, although the number of articles by newspapers is uneven. An inquiry of the top 15 newspapers by entries showed that The Birmingham Age-Herald has the largest number of identified entries with 118, followed by The Daily Worker with 64 and The Topeka State Journal with 63 in the data set. However, the highest 336 entries were under an unidentified newspaper name (NA), which suggests that a notable portion of the articles are missing their publication information. The analysis of the keyword column returned 37 different keywords. Among them, “mob” appears 3,273 times. The next most common keyword is “masked,” which appears 158 times, and “mobs,” which appears 96 times. This suggests that the keywords are heavily concentrated around the term “mob”. The count by year shows 110 different years, with the largest count found in 1903 with 246 articles, followed by 1906 with 207 and 1901 with 197 articles. A graph of the years shows the article count rising sharply during the decade from 1890 to the 1990s. From the analysis, some questions remain about the data set. Why are the newspaper names missing for those 336 articles?  Also, why is the dataset missing articles from some years that show no values in the graph?
+
+
 
 
