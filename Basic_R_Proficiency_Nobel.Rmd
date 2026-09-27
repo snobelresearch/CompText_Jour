@@ -20,7 +20,7 @@ mob_data <- rio::import("https://raw.githubusercontent.com/wellsdata/CompText_Jo
 
 My memo: 
 
-#Using code, describe the number of rows and columns in the data set
+# Using code, describe the number of rows and columns in the data set
 
 ```{r}
 nrow(mob_data)
@@ -29,7 +29,7 @@ ncol(mob_data)
 # There are 3836 rows and 7 columns in the data set
 
 
-#Create a table that displays a count of the top 15 newspaper entries
+# Create a table that displays a count of the top 15 newspaper entries
 ```{r}
 Top_15_Newspaper_Entries <- mob_data |>
   group_by(Newspaper) |> 
