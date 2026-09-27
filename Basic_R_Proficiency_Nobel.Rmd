@@ -61,7 +61,7 @@ The Daily Ardmoreite (Ardmore, Okla.)	28
 The Salt Lake herald (Salt Lake City ...)	28			
 #15 rows		
 
-#Create a table that counts the different entries in the "keyword" column
+# Create a table that counts the different entries in the "keyword" column
 
 ```{r}
 Keywords <- mob_data |> 
