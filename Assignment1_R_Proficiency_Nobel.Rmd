@@ -1,0 +1,109 @@
+---
+title: "Assignment#1_R_Proficiency_Nobel"
+author: "Nobel"
+date: "2026-10-03"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+
+# Load relevant software libraries
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+# Load the data 
+
+```{r}
+black_data <- read.csv("https://raw.githubusercontent.com/wellsdata/CompText_Jour/main/data/blackindex_master.csv") |> 
+  clean_names()
+```
+
+# Using code, describe the number of rows and columns in the dataset. Use the print(Paste0....) to display the results in a sentence form. 
+
+```{r}
+# Using code, describe the number of rows and columns in the dataset
+nrow(black_data)
+ncol(black_data)
+# Use the print(Paste0....) to display the results in a sentence form
+print(paste0("This dataset has ", nrow(black_data), " rows and ", ncol(black_data), " columns."))
+```
+
+# This dataset has 1803 rows and 30 columns.
+
+# Create a table that displays a count of the top 20 newspaper_city entries. Filter out the NA values
+
+```{r}
+black_data |> 
+  filter(!is.na(newspaper_city)) |> 
+  count(newspaper_city) |> 
+  slice_max(order_by = n, n = 20)
+```
+
+# After filtering out the NA values, the dataset showed only 12 unique newspaper_city entries, although the slice_max() function was used to display the top 20 values. This happened because there were only 12 unique non-missing city entries in the dataset. To confirm this, I removed the NA filter and reran the code. It returned 13 values, with NA appearing as an additional category along with the 12 cities. The 12 cities were Pittsburgh, Chicago, Atlanta, Norfolk, New_York, Philadelphia, Cleveland, Los_Angeles, New_Orleans, St_Louis, Battle_Creek, and Boston.		
+
+# Create a table that counts all entries by year
+
+```{r}
+black_data |> 
+  count(year) |> 
+  arrange(desc(n))
+```
+
+# The table shows entries across 106 different years. The year 1920 had the highest number of entries with 127, followed by 1919 with 108 entries and 1946 with 92 entries.
+
+# Create a simple column ggplot chart that shows the total entries by year
+
+```{r}
+black_data %>%
+  count(year) %>%
+  arrange(desc(n)) %>%
+  ggplot(aes(x = year, y = n,
+             fill = n)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "none") +
+  labs(
+    title = "Total Entries by Year",
+    y = "Number of Entries",
+    x = "Year",
+    caption = "Graphic by Shahariar Nobel, Oct 3 2026"
+  )
+```
+
+# The chart shows that newspaper entries are unevenly distributed across the years. Most entries are concentrated in the early and mid-20th century, while relatively few entries appear in the earlier and later years in the dataset. 
+
+# My Memo
+
+# Using some basic R functions for data inspection, summarization and visualization, the data on the historic Black newspapers were analyzed in this assignment. Although the dataset contained 1,803 rows and 30 columns, some major flaws were revealed in the dataset in terms of the year and newspaper_city entries.
+
+# The inquiry into the newspaper_city column revealed an important limitation in the dataset. After filtering out the NA values and requesting the top 20 newspaper_city entries, only 12 unique newspaper_city entries appeared, led by Pittsburgh with 151 entries, Chicago with 147, and Atlanta with 122. To understand why so few cities appeared, I reran the code chunk without filtering out the NA values and found that 1089 of the 1803 records have NA values in the newspaper_city column, which suggests a substantial incompleteness in the geographic information of the dataset. 
+
+# The examination of entries by year raised another question about the dataset. Although the dataset covers 106 different years, the entries are concentrated mostly in certain periods.  The year 1920 had the highest number with 127 entries, followed by 1919 with 108 and 1946 with 92. On the other hand, several years had only one entry. The column chart made this uneven distribution more visible, showing a clear concentration in the early and mid-20th century but fewer entries in the 19th and late 20th century.
+
+# To conclude, the analysis raised questions about the dataset. Do these differences in concentrations reflect actual patterns of the Black newspapers, or are they indicators of missing records, archival limitations, or the uneven efforts in preserving and collecting Black newspaper data across different locations and time periods?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
