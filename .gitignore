@@ -1,0 +1,7 @@
+# Large data files (GitHub rejects files over 100 MB)
+docs/nexis_master_articles_df_SN.csv
+
+# macOS / R clutter
+.DS_Store
+.Rhistory
+.Rproj.user/
