@@ -1,82 +1,467 @@
 ---
-title: "Hosting a GitHub Page"
-author: "Rob Wells"
-date: "6-1-2026"
-format:
-  html:
-    theme: cosmo
+title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling"
+author: "Shahariar Nobel"
+date: '2026-11-14'
+output: html_document
 ---
 
-# Hosting a GitHub Page - R Cheat Sheet
+#--------------------------------------------- \# Representation of Political Influencers in U.S. Newspapers Topic Modeling #---------------------------------------------
 
-This exercise will allow you to create a basic web page which will be required for the Investigate Your Community final project option.
+# Load Libraries
 
-For this exercise, you will create a page with your one paragraph story idea. You will then host it on your GitHub page.
+```{r include=FALSE}
+# set options
+options(stringsAsFactors = F)         # no automatic data transformation
+options("scipen" = 100, "digits" = 4) # suppress math annotation
+# load packages
+here::here()
+library(tidyverse)
+library(tidytext)
+library(rio)
+library(readtext)
+#topic modeling
+library(quanteda)
+library(tm)
+library(topicmodels)
+library(lda)
+library(ldatuning)
+# from tutorial packages
+library(DT)
+library(knitr) 
+library(kableExtra) 
+library(reshape2)
+library(ggplot2)
+library(wordcloud)
+library(pals)
+library(SnowballC)
+library(flextable)
 
-## Styled Text
+```
 
-At the core, QMD files are text files, and they allow you to use a very lightweight "markup" language to style text, similar to html, but much less fussy.
 
-Outside of the codeblocks (the gray sections where we write code), we can style any text using standard markdown styling.
+### Import Data
 
-This is a nice guide to styling text with markdown: [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+```{r include=FALSE}
 
-We can create headings similar to html's h1 to h6 with hashtags.
+library(googledrive)
+library(readr)
 
-##### This is an h5
+# AI Given Code
 
-We can create links, like this: [google](https://google.com)
+# Access public Google Drive files without signing in
+drive_deauth()
 
-We can **bold** or *italic* text.
+# Download the dataset
+drive_download(
+  as_id("https://drive.google.com/file/d/19Jp6fXZINmE3KJFm6qhWatbBt_gJzH3D/view?usp=drive_link"),
+  path = "nexis_master_articles_df_SN.csv",
+  overwrite = TRUE
+)
 
-We can create bulleted lists.
+# Import data
+pol_influ <- read_csv("nexis_master_articles_df_SN.csv")
 
-- bullet one
-- bullet two
-- bullet three
+```
 
-## Code blocks
+# Topic Modeling 
 
-We can also add special code inside of code blocks -- the gray sections where we write code -- that control how they render in our html document. These output options let us do things like:
+### Process into corpus object
 
-- Show or hide the code when we render our html document (echo: true or false)
-- Prevent the code from actually running when we render our html document (eval: true or false)
-- Hide warnings from outputing when we render our html document (warning: true or false)
+```{r}
+textdata <- pol_influ %>% 
+  mutate(year = str_sub(published_date, 1, 4)) %>% # creates the year column
+  select(filename, sentence, year) %>% 
+  as.data.frame() %>% 
+  rename(doc_id = filename, text = sentence)
+```
 
-There's a [full guide here](https://quarto.org/docs/computations/execution-options.html#output-options).
+### Remove stopwords, clean corpus
 
-The code below, for example, will output the text inside the print statement when rendered to html, but the actual code -- the print() function -- will be hidden.
+```{r}
+# 1. Define standard stopwords
+english_stopwords <- stopwords("en")
 
-## Create your website
+# 2. Build corpus
+corpus <- Corpus(DataframeSource(textdata))
 
-In place of these instructions, you will paste your project one paragraph story idea into this document and any code you've developed so far.
+# 3. Clean in correct sequence
+processedCorpus <- tm_map(corpus, content_transformer(tolower))
+processedCorpus <- tm_map(processedCorpus, removePunctuation, preserve_intra_word_dashes = TRUE)
+processedCorpus <- tm_map(processedCorpus, removeNumbers)
 
-You will need to load libraries and data because rendering a page requires a full R session to execute on the code.
+# Remove stopwords BEFORE stemming
+processedCorpus <- tm_map(processedCorpus, removeWords, english_stopwords)
 
-First, create H1 headers
+# Stem documents after removing stopwords
+processedCorpus <- tm_map(processedCorpus, stemDocument, language = "en")
+processedCorpus <- tm_map(processedCorpus, stripWhitespace)
+```
 
-**For example:**
+```{r tm3a}
+#DTM: rows correspond to the documents in the corpus. Columns correspond to the terms in the documents. Cells correspond to the weights of the terms. (Girder)
+# compute document term matrix with terms >= minimumFrequency
+minimumFrequency <- 5
+DTM <- DocumentTermMatrix(processedCorpus, control = list(bounds = list(global = c(minimumFrequency, Inf))))
+# have a look at the number of documents and terms in the matrix
+dim(DTM)
+# due to vocabulary pruning, we have empty rows in our DTM
+# LDA does not like this. So we remove those docs from the
+# DTM and the metadata
+sel_idx <- slam::row_sums(DTM) > 0
+DTM <- DTM[sel_idx, ]
+textdata <- textdata[sel_idx, ]
 
-# Income and Vacancies of Baltimore Neighborhoods 2020
+# 5 term minimum [1] 117387 14223
+# 5 term minimum[1] [1] 99631 14223
 
-## Looking at wealth inequality in Charm City
+```
 
-```{r eval=FALSE, include=TRUE}
+## Topic proportions over time {.unnumbered}
 
-# You will write your code in chunks but not execute the data. Use {r eval=FALSE, include=TRUE} in the header so the page will render without running the actual code.
-income_vacancy %>% 
-  ggplot(aes(x = community)) +
-  geom_point(aes(y=income_2020), color = "#64D197", stroke=5) +
-  geom_point(aes(y=vacant_2020*1000), stroke=5, color = "#FB8AE3") +
-  scale_y_continuous(
-    name = "2020 Income (Green)", limits=c(0, 62000), labels=scales::dollar_format(),
-    sec.axis = sec_axis(~./60000, name="2020 Percent Vacancies (Red)", labels = scales::percent))+
-  #scale_y_continuous(labels = scales::percent) +
-  labs(
-    title = "Income and Vacancies of Baltimore Neighborhoods 2020",
-    x = "Community",
-    caption = "source: BNIA Data - By: Parker Leipzig and Rob Wells"
-  )
+We examine topics in the data over time by aggregating mean topic proportions per year. These aggregated topic proportions can then be visualized, e.g. as a bar plot.
+
+Articles per year
+
+```{r}
+#| echo: false
+#install.packages("formattable")
+articles_years <- textdata %>% 
+  distinct(doc_id, .keep_all=TRUE) %>% 
+  count(year) %>% 
+  mutate(pct_total= (n/sum(n))) %>% 
+  mutate(pct_total= formattable::percent(pct_total)) %>% 
+  # mutate(pct_total = round(pct_total, 1)) %>% 
+  arrange(desc(year))
+
+#library(kableExtra)
+articles_years %>%
+  kbl(caption = "Political Social Media Influencer Articles by Year", font_size = 30) %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "5em") %>% 
+  column_spec(3, width = "5em", background = "yellow")
+
+
+
+#Fact check total number of unique articles
+#sum(articles_years$n)
+```
+
+```{r tm12}
+# number of topics
+# K <- 20
+K <- 6
+# set random number generator seed
+set.seed(9161)
+#Latent Dirichlet Allocation, LDA
+topicModel2 <- LDA(DTM, K, method="Gibbs", control=list(iter = 500, verbose = 25, alpha = 0.2))
+tmResult <- posterior(topicModel2)
+theta <- tmResult$topics
+beta <- tmResult$terms
+topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset topicnames
+```
+
+### Mean topic proportions per year
+
+```{r}
+
+# Step 1: Check dimensions
+n_theta <- nrow(theta)
+n_textdata <- length(textdata$year)
+
+cat("Number of rows in theta: ", n_theta, "\n")
+cat("Number of documents in textdata: ", n_textdata, "\n")
+
+# Number of rows in theta: 99631
+# Number of documents in textdata: 99631
+
+# Ensure the lengths match
+if (n_theta != n_textdata) {
+  stop("The number of rows in 'theta' still does not match textdata.")
+}
+
+# Removed the ID-matching steps from the lesson code because theta and textdata already have matching row counts.
+
+# Step 2: Combine data
+topic_data <- data.frame(theta, year = textdata$year)
+
+# Step 3: Aggregate data
+topic_proportion_per_year <- aggregate(. ~ year, data = topic_data, FUN = mean)
+
+# Set topic names to aggregated columns
+colnames(topic_proportion_per_year)[2:(K+1)] <- topicNames
+
+# Reshape data frame
+vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
+
+```
+
+#Examine topic names
+
+```{r}
+#enframe(): Converts a named list into a dataframe.
+topics <- enframe(topicNames, name = "number", value = "text") %>% 
+  unnest(cols = c(text)) 
+  
+topics
+```
+
+### Review the topics and determine a 1-2 word label after reading the source documents.
+
+```{r}
+
+#Topics 
+
+theta2 <- as.data.frame(theta)
+
+topic1 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> # put document IDs into a column
+  mutate(doc_id = str_remove(doc_id, "^X\\."),  # remove leading "X."
+         line = str_extract(doc_id, "(?<=\\.txt)\\.\\d+")) |> # Extract number after .txt
+  mutate(doc_id = str_remove(doc_id, "\\.\\d+$")) |>
+  rename(topic1 = '1') |> 
+  top_n(20, topic1) |> 
+  arrange(desc(topic1)) |>  
+  select(doc_id, line, topic1)
+
+topic1
+
+topic2 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> 
+  rename(topic2 = '2') |> 
+  top_n(20, topic2) |> 
+  arrange(desc(topic2)) |>  
+  select(doc_id, topic2)
+
+topic2
+
+topic3 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> 
+  rename(topic3 = '3') |> 
+  top_n(20, topic3) |> 
+  arrange(desc(topic3)) |>  
+  select(doc_id, topic3)
+
+topic3
+
+
+topic4 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> 
+  rename(topic4 = '4') |> 
+  top_n(20, topic4) |> 
+  arrange(desc(topic4)) |>  
+  select(doc_id, topic4)
+
+topic4
+
+topic5 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> 
+  rename(topic5 = '5') |> 
+  top_n(20, topic5) |> 
+  arrange(desc(topic5)) |>  
+  select(doc_id, topic5)
+
+topic5
+
+topic6 <- theta2 %>% 
+  rownames_to_column(var = "doc_id") |> 
+  rename(topic6 = '6') |> 
+  top_n(20, topic6) |> 
+  arrange(desc(topic6)) |>  
+  select(doc_id, topic6)
+
+topic6
+
+```
+
+Topic 1: trump said presid state hous feder administr law elect govern/
+Topic 2: think know peopl like end video just want get clip/
+Topic 3: said “ polit ’s — peopl like trump one word/
+Topic 4: new time york media post social polit campaign influenc right/
+Topic 5: news fox thank right now bodi presid well iran yes/
+Topic 6: democrat republican trump elect parti voter senat presid state campaign/
+
+```{r}
+
+# add categories
+
+vizDataFrame <- vizDataFrame %>% 
+  mutate(category = case_when(
+    str_detect(variable, "trump said presid state hous feder administr law elect govern") ~ "Trump_Administration",
+    str_detect(variable, "think know peopl like end video just want get clip") ~ "Political_Broadcast",
+    str_detect(variable, "said “ polit ’s — peopl like trump one word") ~ "Political_Culture",
+    str_detect(variable, "new time york media post social polit campaign influenc right") ~ "Digital_politics",
+    str_detect(variable, "news fox thank right now bodi presid well iran yes") ~ "Political_News",
+    str_detect(variable, "democrat republican trump elect parti voter senat presid state campaign") ~ "Elections_Campaigns"
+  ))
+
+```
+
+# Fact Check and Validate Topics
+
+Topic 1: Trump Administration "trump said presid state hous feder administr law elect govern" Topic 2: Political Broadcast "think know peopl like end video just want get clip" Topic 3: Political Culture "said “ polit ’s — peopl like trump one word" Topic 4: Digital_politics "new time york media post social polit campaign influenc right" Topic 5: Political News "news fox thank right now bodi presid well iran yes" Topic 6: Elections and Campaigns "democrat republican trump elect parti voter senat presid state campaign"
+
+### for trump_administration
+
+```{r}
+
+theta2 <- as.data.frame(theta)
+
+trump_administration <- theta2 %>% 
+  # renaming for a general topic
+  rename(trump_administration = '1') %>% 
+  top_n(20, trump_administration) %>%
+  arrange(desc(trump_administration)) %>% 
+  select(trump_administration)
+
+# Apply rownames_to_column
+trump_administration <- tibble::rownames_to_column(
+  trump_administration, "story_id"
+)
+
+# Remove leading "X." if present
+trump_administration$story_id <- str_remove(
+  trump_administration$story_id, "^X\\."
+) # Used AI to accommodate the code for my story IDs.
+
+# Remove trailing segment number
+trump_administration$story_id <- str_remove(
+  trump_administration$story_id, "\\.\\d+$"
+)
+
+head(trump_administration$story_id, 20)
+
+# Checks out
+
+```
+
+### for digital_politics
+
+```{r}
+theta2 <- as.data.frame(theta)
+
+digital_politics <- theta2 %>% 
+  # renaming for a general topic
+  rename(digital_politics = '4') %>% 
+  top_n(20, digital_politics) %>%
+  arrange(desc(digital_politics)) %>% 
+  select(digital_politics)
+
+# Apply rownames_to_column
+digital_politics <- tibble::rownames_to_column(
+  digital_politics, "story_id"
+)
+
+# Remove leading "X." if present
+digital_politics$story_id <- str_remove(
+  digital_politics$story_id, "^X\\."
+) # Used AI to accommodate the code for my story IDs.
+
+# Remove trailing segment number
+digital_politics$story_id <- str_remove(
+  digital_politics$story_id, "\\.\\d+$"
+)
+
+head(digital_politics$story_id, 20)
+
+# Checks out
+# Main theme: Digital Politics and Online Political Influence
+```
+
+### for political_culture
+
+```{r}
+### for political_culture
+
+theta2 <- as.data.frame(theta)
+
+political_culture <- theta2 %>% 
+  # renaming for a general topic
+  rename(political_culture = '3') %>% 
+  top_n(20, political_culture) %>%
+  arrange(desc(political_culture)) %>% 
+  select(political_culture)
+
+# Apply rownames_to_column
+political_culture <- tibble::rownames_to_column(
+  political_culture, "story_id"
+)
+
+# Remove leading "X." if present
+political_culture$story_id <- str_remove(
+  political_culture$story_id, "^X\\."
+)
+
+# Remove trailing segment number
+political_culture$story_id <- str_remove(
+  political_culture$story_id, "\\.\\d+$"
+)
+
+head(political_culture$story_id, 20)
+
+# Checks out
+# Main theme appears to be political culture and ideological identity
+
+```
+
+### for elections_campaigns
+
+```{r}
+
+theta2 <- as.data.frame(theta)
+
+elections_campaigns <- theta2 %>% 
+  # renaming for a general topic
+  rename(elections_campaigns = '6') %>% 
+  top_n(20, elections_campaigns) %>%
+  arrange(desc(elections_campaigns)) %>% 
+  select(elections_campaigns)
+
+# Apply rownames_to_column
+elections_campaigns <- tibble::rownames_to_column(
+  elections_campaigns, "story_id"
+)
+
+# Remove leading "X." if present
+elections_campaigns$story_id <- str_remove(
+  elections_campaigns$story_id, "^X\\."
+)
+
+# Remove trailing segment number
+elections_campaigns$story_id <- str_remove(
+  elections_campaigns$story_id, "\\.\\d+$"
+)
+
+head(elections_campaigns$story_id, 20)
+
+# Checks out
+```
+
+# Figure: political influencer topics by year
+
+```{r}
+#| label: Political influencer topics by year
+#| echo: false
+# plot topic proportions per year as bar plot
+ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
+  geom_bar(stat = "identity") + ylab("proportion") + 
+  #scale_fill_manual(values = paste0(alphabet(20), "FF"), name = "year") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+   scale_fill_manual(values=c("#9933FF",
+                              "#33FFFF",
+                              "red",
+                              "yellow",
+                              "darkblue",
+                              "green"))+
+   #                           "blue"))+ 
+   #                           #"pink",
+   #                           #"gray",
+   #                           #"orange")) +
+  labs(title = "Common Topics in Political Social Media Influencer News Coverage",
+       subtitle = "Six probable topics in the news sample",
+       caption = "Aggregate mean topic proportions per year. Graphic by Shahariar Nobel, 11--2026")
+
+# ggsave(here::here("../lynching_press/output_images_tables/Article_Images/Figure_15_white_topics_oct_19_2024.png"),device = "png",width=9,height=6, dpi=800)
 ```
 
 ## Set up for hosting

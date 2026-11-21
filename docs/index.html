@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rob Wells">
-<meta name="dcterms.date" content="2026-06-01">
+<meta name="author" content="Shahariar Nobel">
+<meta name="dcterms.date" content="2026-11-14">
 
-<title>Hosting a GitHub Page</title>
+<title>Representation of Political Influencers in U.S. Newspapers Topic Modeling</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,7 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -86,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hosting a GitHub Page</h1>
+<h1 class="title">Representation of Political Influencers in U.S. Newspapers Topic Modeling</h1>
 </div>
 
 
@@ -96,14 +98,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Rob Wells </p>
+             <p>Shahariar Nobel </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 1, 2026</p>
+      <p class="date">November 14, 2026</p>
     </div>
   </div>
   
@@ -115,68 +117,850 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="hosting-a-github-page---r-cheat-sheet" class="level1">
-<h1>Hosting a GitHub Page - R Cheat Sheet</h1>
-<p>This exercise will allow you to create a basic web page which will be required for the Investigate Your Community final project option.</p>
-<p>For this exercise, you will create a page with your one paragraph story idea. You will then host it on your GitHub page.</p>
-<section id="styled-text" class="level2">
-<h2 class="anchored" data-anchor-id="styled-text">Styled Text</h2>
-<p>At the core, QMD files are text files, and they allow you to use a very lightweight “markup” language to style text, similar to html, but much less fussy.</p>
-<p>Outside of the codeblocks (the gray sections where we write code), we can style any text using standard markdown styling.</p>
-<p>This is a nice guide to styling text with markdown: <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown guide</a></p>
-<p>We can create headings similar to html’s h1 to h6 with hashtags.</p>
-<section id="this-is-an-h5" class="level5">
-<h5 class="anchored" data-anchor-id="this-is-an-h5">This is an h5</h5>
-<p>We can create links, like this: <a href="https://google.com">google</a></p>
-<p>We can <strong>bold</strong> or <em>italic</em> text.</p>
-<p>We can create bulleted lists.</p>
-<ul>
-<li>bullet one</li>
-<li>bullet two</li>
-<li>bullet three</li>
-</ul>
+<p>#——————————————— # Representation of Political Influencers in U.S. Newspapers Topic Modeling #———————————————</p>
+<section id="load-libraries" class="level1">
+<h1>Load Libraries</h1>
+<section id="import-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-data">Import Data</h3>
 </section>
 </section>
-<section id="code-blocks" class="level2">
-<h2 class="anchored" data-anchor-id="code-blocks">Code blocks</h2>
-<p>We can also add special code inside of code blocks – the gray sections where we write code – that control how they render in our html document. These output options let us do things like:</p>
-<ul>
-<li>Show or hide the code when we render our html document (echo: true or false)</li>
-<li>Prevent the code from actually running when we render our html document (eval: true or false)</li>
-<li>Hide warnings from outputing when we render our html document (warning: true or false)</li>
-</ul>
-<p>There’s a <a href="https://quarto.org/docs/computations/execution-options.html#output-options">full guide here</a>.</p>
-<p>The code below, for example, will output the text inside the print statement when rendered to html, but the actual code – the print() function – will be hidden.</p>
-</section>
-<section id="create-your-website" class="level2">
-<h2 class="anchored" data-anchor-id="create-your-website">Create your website</h2>
-<p>In place of these instructions, you will paste your project one paragraph story idea into this document and any code you’ve developed so far.</p>
-<p>You will need to load libraries and data because rendering a page requires a full R session to execute on the code.</p>
-<p>First, create H1 headers</p>
-<p><strong>For example:</strong></p>
-</section>
-</section>
-<section id="income-and-vacancies-of-baltimore-neighborhoods-2020" class="level1">
-<h1>Income and Vacancies of Baltimore Neighborhoods 2020</h1>
-<section id="looking-at-wealth-inequality-in-charm-city" class="level2">
-<h2 class="anchored" data-anchor-id="looking-at-wealth-inequality-in-charm-city">Looking at wealth inequality in Charm City</h2>
+<section id="topic-modeling" class="level1">
+<h1>Topic Modeling</h1>
+<section id="process-into-corpus-object" class="level3">
+<h3 class="anchored" data-anchor-id="process-into-corpus-object">Process into corpus object</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You will write your code in chunks but not execute the data. Use {r eval=FALSE, include=TRUE} in the header so the page will render without running the actual code.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>income_vacancy <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> community)) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>income_2020), <span class="at">color =</span> <span class="st">"#64D197"</span>, <span class="at">stroke=</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>vacant_2020<span class="sc">*</span><span class="dv">1000</span>), <span class="at">stroke=</span><span class="dv">5</span>, <span class="at">color =</span> <span class="st">"#FB8AE3"</span>) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"2020 Income (Green)"</span>, <span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">62000</span>), <span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>(),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">/</span><span class="dv">60000</span>, <span class="at">name=</span><span class="st">"2020 Percent Vacancies (Red)"</span>, <span class="at">labels =</span> scales<span class="sc">::</span>percent))<span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(labels = scales::percent) +</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Income and Vacancies of Baltimore Neighborhoods 2020"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Community"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"source: BNIA Data - By: Parker Leipzig and Rob Wells"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>textdata <span class="ot">&lt;-</span> pol_influ <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_sub</span>(published_date, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">%&gt;%</span> <span class="co"># creates the year column</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(filename, sentence, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">doc_id =</span> filename, <span class="at">text =</span> sentence)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section id="remove-stopwords-clean-corpus" class="level3">
+<h3 class="anchored" data-anchor-id="remove-stopwords-clean-corpus">Remove stopwords, clean corpus</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define standard stopwords</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>english_stopwords <span class="ot">&lt;-</span> <span class="fu">stopwords</span>(<span class="st">"en"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Build corpus</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>corpus <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">DataframeSource</span>(textdata))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Clean in correct sequence</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(corpus, <span class="fu">content_transformer</span>(tolower))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(processedCorpus, removePunctuation, <span class="at">preserve_intra_word_dashes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(processedCorpus, removeNumbers)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove stopwords BEFORE stemming</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(processedCorpus, removeWords, english_stopwords)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Stem documents after removing stopwords</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(processedCorpus, stemDocument, <span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>processedCorpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(processedCorpus, stripWhitespace)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DTM: rows correspond to the documents in the corpus. Columns correspond to the terms in the documents. Cells correspond to the weights of the terms. (Girder)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compute document term matrix with terms &gt;= minimumFrequency</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>minimumFrequency <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>DTM <span class="ot">&lt;-</span> <span class="fu">DocumentTermMatrix</span>(processedCorpus, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">bounds =</span> <span class="fu">list</span>(<span class="at">global =</span> <span class="fu">c</span>(minimumFrequency, <span class="cn">Inf</span>))))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># have a look at the number of documents and terms in the matrix</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(DTM)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 117387  14223</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># due to vocabulary pruning, we have empty rows in our DTM</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># LDA does not like this. So we remove those docs from the</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># DTM and the metadata</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sel_idx <span class="ot">&lt;-</span> slam<span class="sc">::</span><span class="fu">row_sums</span>(DTM) <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>DTM <span class="ot">&lt;-</span> DTM[sel_idx, ]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>textdata <span class="ot">&lt;-</span> textdata[sel_idx, ]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 term minimum [1] 117387 14223</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 term minimum[1] [1] 99631 14223</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="topic-proportions-over-time" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="topic-proportions-over-time">Topic proportions over time</h2>
+<p>We examine topics in the data over time by aggregating mean topic proportions per year. These aggregated topic proportions can then be visualized, e.g.&nbsp;as a bar plot.</p>
+<p>Articles per year</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small">
+<caption>Political Social Media Influencer Articles by Year</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">pct_total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2026</td>
+<td style="text-align: right; width: 5em;">604</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">43.64%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2025</td>
+<td style="text-align: right; width: 5em;">322</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">23.27%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2024</td>
+<td style="text-align: right; width: 5em;">293</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">21.17%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2023</td>
+<td style="text-align: right; width: 5em;">54</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">3.90%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2022</td>
+<td style="text-align: right; width: 5em;">75</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">5.42%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2021</td>
+<td style="text-align: right; width: 5em;">25</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">1.81%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2020</td>
+<td style="text-align: right; width: 5em;">9</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">0.65%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2019</td>
+<td style="text-align: right; width: 5em;">1</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">0.07%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; border-right: 1px solid;">2018</td>
+<td style="text-align: right; width: 5em;">1</td>
+<td style="text-align: right; width: 5em; background-color: yellow !important;">0.07%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of topics</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># K &lt;- 20</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set random number generator seed</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">9161</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Latent Dirichlet Allocation, LDA</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>topicModel2 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(DTM, K, <span class="at">method=</span><span class="st">"Gibbs"</span>, <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter =</span> <span class="dv">500</span>, <span class="at">verbose =</span> <span class="dv">25</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>K = 6; V = 14223; M = 99631
+Sampling 500 iterations!
+Iteration 25 ...
+Iteration 50 ...
+Iteration 75 ...
+Iteration 100 ...
+Iteration 125 ...
+Iteration 150 ...
+Iteration 175 ...
+Iteration 200 ...
+Iteration 225 ...
+Iteration 250 ...
+Iteration 275 ...
+Iteration 300 ...
+Iteration 325 ...
+Iteration 350 ...
+Iteration 375 ...
+Iteration 400 ...
+Iteration 425 ...
+Iteration 450 ...
+Iteration 475 ...
+Iteration 500 ...
+Gibbs sampling completed!</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tmResult <span class="ot">&lt;-</span> <span class="fu">posterior</span>(topicModel2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> tmResult<span class="sc">$</span>topics</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> tmResult<span class="sc">$</span>terms</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>topicNames <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">terms</span>(topicModel2, <span class="dv">10</span>), <span class="dv">2</span>, paste, <span class="at">collapse =</span> <span class="st">" "</span>)  <span class="co"># reset topicnames</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="mean-topic-proportions-per-year" class="level3">
+<h3 class="anchored" data-anchor-id="mean-topic-proportions-per-year">Mean topic proportions per year</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Check dimensions</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>n_theta <span class="ot">&lt;-</span> <span class="fu">nrow</span>(theta)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_textdata <span class="ot">&lt;-</span> <span class="fu">length</span>(textdata<span class="sc">$</span>year)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows in theta: "</span>, n_theta, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of rows in theta:  99631 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of documents in textdata: "</span>, n_textdata, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of documents in textdata:  99631 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of rows in theta: 99631</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of documents in textdata: 99631</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the lengths match</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (n_theta <span class="sc">!=</span> n_textdata) {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"The number of rows in 'theta' still does not match textdata."</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Removed the ID-matching steps from the lesson code because theta and textdata already have matching row counts.</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Combine data</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>topic_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(theta, <span class="at">year =</span> textdata<span class="sc">$</span>year)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Aggregate data</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>topic_proportion_per_year <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(. <span class="sc">~</span> year, <span class="at">data =</span> topic_data, <span class="at">FUN =</span> mean)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Set topic names to aggregated columns</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(topic_proportion_per_year)[<span class="dv">2</span><span class="sc">:</span>(K<span class="sc">+</span><span class="dv">1</span>)] <span class="ot">&lt;-</span> topicNames</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape data frame</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>vizDataFrame <span class="ot">&lt;-</span> <span class="fu">melt</span>(topic_proportion_per_year, <span class="at">id.vars =</span> <span class="st">"year"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>#Examine topic names</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#enframe(): Converts a named list into a dataframe.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>topics <span class="ot">&lt;-</span> <span class="fu">enframe</span>(topicNames, <span class="at">name =</span> <span class="st">"number"</span>, <span class="at">value =</span> <span class="st">"text"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(text)) </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>topics</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  number  text                                                                  
+  &lt;chr&gt;   &lt;chr&gt;                                                                 
+1 Topic 1 trump said presid state hous feder administr law elect govern         
+2 Topic 2 think know peopl like end video just want get clip                    
+3 Topic 3 said “ polit ’s — peopl like trump one word                           
+4 Topic 4 new time york media post social polit campaign influenc right         
+5 Topic 5 news fox thank right now bodi presid well iran yes                    
+6 Topic 6 democrat republican trump elect parti voter senat presid state campai…</code></pre>
+</div>
+</div>
+</section>
+<section id="review-the-topics-and-determine-a-1-2-word-label-after-reading-the-source-documents." class="level3">
+<h3 class="anchored" data-anchor-id="review-the-topics-and-determine-a-1-2-word-label-after-reading-the-source-documents.">Review the topics and determine a 1-2 word label after reading the source documents.</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Topics </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>theta2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(theta)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>topic1 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> <span class="co"># put document IDs into a column</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">str_remove</span>(doc_id, <span class="st">"^X</span><span class="sc">\\</span><span class="st">."</span>),  <span class="co"># remove leading "X."</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">line =</span> <span class="fu">str_extract</span>(doc_id, <span class="st">"(?&lt;=</span><span class="sc">\\</span><span class="st">.txt)</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>)) <span class="sc">|&gt;</span> <span class="co"># Extract number after .txt</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">str_remove</span>(doc_id, <span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+$"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic1 =</span> <span class="st">'1'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic1) <span class="sc">|&gt;</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic1)) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, line, topic1)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>topic1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                     doc_id
+1                                                                                    The.Pardon.Brokers.txt
+2                                                                                   Foreign.Influencers.txt
+3                                                             How.to.Get.a.Pardon.in.Trump.s.Washington.txt
+4                                                             How.to.Get.a.Pardon.in.Trump.s.Washington.txt
+5                                Trump.Revives.Conspiracy.Theories.About.2020.Election.as.Midterms.Loom.txt
+6                                                                                            Power.Play.txt
+7  Another.Late.Night.DoJ.Anti.Trump._Bombshell_.Leak..Dems.Hope.Fake.Populists.Will.Fool.Voters..Tim.R.txt
+8    Clear.Threat._.Critics.Raise.Concern..RESTRICT..Act.Empowers.Biden.While.Leaving.Chinese..Spyware..txt
+9                  The.Latest_.SCOTUS.allows.Trump_u2019s.White.House.ballroom.construction.to.continue.txt
+10                                  His.Opponents.Keep.Talking.About.His.Past.Ties.to.a.Militant.Cleric.txt
+11 Complaints.about.Data.Centers.in.U.S..Examined..Tech.Company.CEO.Interviewed.on.Challenges.in.U.S..f.txt
+12                     Trump.mired.in.Epstein.controversy.as.Wall.Street.Journal.reports.on.2003.letter.txt
+13 Democrat.Rep.Robert.Garcia.Says.Trump..Melania.Will.Be.Hauled.Before.Congress.If.His.Party.Takes.Bac.txt
+14                          Google.Co.Founder.Seeds.Billionaire.Political.Effort.Amid.Wealth.Tax.Debate.txt
+15                                     Trump.Revives.2020.Election.Conspiracy.Theories.as.Midterms.Loom.txt
+16  Congress.collected.30.million.lines.of.phone.data.in.Trump.J6.probe..raising.civil.liberty.concerns.txt
+17                                           A.Schism.Over.Epstein.Files..but.Bondi.Has.Trump.s.Backing.txt
+18                                                                                   The.Pardon.Brokers.txt
+19          Even.After.Bondi.Gains.Trump.s.Backing..Her.Survival.Remains.an.Open.Question.news.analysis.txt
+20                                    Officials.Move.to.Open.Inquiry.on.Trump.s..Russia.Hoax..Grievance.txt
+21                                    How.Pam.Bondi.s.Missteps.on.the.Epstein.Files.Jeopardized.Her.Job.txt
+22                                                            How.to.Get.a.Pardon.in.Trump.s.Washington.txt
+23                                                            How.to.Get.a.Pardon.in.Trump.s.Washington.txt
+24                                                                                   The.Pardon.Brokers.txt
+25                                                                                   The.Pardon.Brokers.txt
+   line topic1
+1   .56 0.9847
+2   .42 0.9842
+3   .28 0.9837
+4   .56 0.9834
+5   .18 0.9831
+6   .59 0.9815
+7  .131 0.9805
+8   .43 0.9801
+9    .7 0.9793
+10  .17 0.9793
+11 .195 0.9788
+12  .22 0.9788
+13  .19 0.9784
+14  .21 0.9779
+15  .40 0.9774
+16  .12 0.9774
+17  .33 0.9774
+18  .18 0.9769
+19  .33 0.9769
+20  .15 0.9763
+21  .49 0.9763
+22  .24 0.9763
+23  .58 0.9763
+24  .15 0.9763
+25  .24 0.9763</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>topic2 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic2 =</span> <span class="st">'2'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic2) <span class="sc">|&gt;</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic2)) <span class="sc">|&gt;</span>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, topic2)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>topic2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                         doc_id
+1  Donald.Trump.Threatens.Iran.After.Getting.DoorDash.Delivery..House.Ethics.Committee.Opens.Eric.Swale.txt.151
+2  Left.Stands.By.Platner.Amid.Scandals..Chicago.Bears.Announce.Potential.Move.To.Indiana...Jeffries.Sl.txt.126
+3  U.S..Monitoring.Possible.Russia.Plague.Death..New.Questions.About.Flydubai.Co.Pilot.After.Attack..Co.txt.291
+4  Thousands.Protests.In.France...Big.Names.Hit.The.Campaign.Trail.In.Battleground.States..Interview.wi.txt.139
+5  Democrats.Making.Midterms.Mistake.By.Embracing.DSA_..Barack.Obama.Issues.Warning.A.I.._Safety.Concer.txt.171
+6   Biden.Campaign.on.TikTok..New.York.Holds.Special.Congressional.Election..Migrant.Teen.in.New.York.Co.txt.50
+7  Trump.Influence.Looms.Large.Over.Key.Primaries..Jeffries.Pushes.Southern.College.Sports.Boycott..Tru.txt.104
+8   Biden.Campaign.on.TikTok..New.York.Holds.Special.Congressional.Election..Migrant.Teen.in.New.York.Co.txt.58
+9  Inquiry.Into.Utah.Students..Post.Dropped..GOP.Sharpens.Economic.Message.Ahead.Of.Midterms..GOP.Midte.txt.196
+10  Democrats.Urge.Caution.Over.A.I...Abdul.El.Sayed.Shows.Off.Football.Skills..Johnson_.We.Declared.Tra.txt.76
+11  Democratic.Socialism.Gains.Momentum.In.The.U.S...Olive.Garden.Pasta.Pass.Sparks.Voter.I.D..Debate..M.txt.68
+12 U.S..Monitoring.Possible.Russia.Plague.Death..New.Questions.About.Flydubai.Co.Pilot.After.Attack..Co.txt.227
+13 Now..Voters.Head.To.Polls.In.Crucial.Michigan.Primary..Report.Says..Projectile.Hits.Ship.In.Strait.O.txt.244
+14  Soon_.Trump.Speaks.At.South.Carolina.Rally..Slotkin.Threatens..Then.Plays.Victim..Dems..Pandemic.Of.txt.279
+15  Candidates.Make.Final.Push.With.Seven.Days.To.Go..Pike.Says..Rep..Ilhan.Omar..D.MN..Probe.Is.B.S...P.txt.40
+16 Buck.Trump.And.Face.The.Wrath.Of.The.Voters..Trump.Has.The.Magic.Touch.In.GOP.Primaries..DOJ.Unseals.txt.119
+17 MI.Among.Toss.ups.That.Could.Decide.Senate.Control..Protesters.Storm.Colosseum.In.Rome..Protests.Spr.txt.210
+18 Donald.Trump.s.New.Press.Secretary.Holds.First.Briefing..Abdul.El..Sayed.Predicts.He.ll.Win.By.Seven.txt.239
+19 Moments.Ago_.U.S..Retaliatory.Strikes.On.Iran...L.A..Democrats.Miss.An.Easy.Layup..TN.GOP.Passes.New.txt.205
+20 Donald.Trump.Threatens.Iran.After.Getting.DoorDash.Delivery..House.Ethics.Committee.Opens.Eric.Swale.txt.215
+21 WHCA.Shooting.Suspect.Hit.With.Federal.Charges..Democrats.Will.Always.Drive.The.Chaos..Suspect.Targe.txt.130
+22                                                             Special.Friday.Night.Edition.Of._Hannity_.txt.83
+23 Democrats.Rage.At.Intel.Heads.During.Hearing..Travelers.Face.Long.Lines.As.TSA.Agents.Work.Without.P.txt.169
+24 Levin_.Preventative.Military.Actions.Are.Crucial.At.Times..Keane_.War.Is.Fundamentally.A.Battle.Of.W.txt.156
+   topic2
+1  0.9793
+2  0.9774
+3  0.9769
+4  0.9757
+5  0.9751
+6  0.9751
+7  0.9738
+8  0.9738
+9  0.9738
+10 0.9731
+11 0.9716
+12 0.9716
+13 0.9699
+14 0.9689
+15 0.9689
+16 0.9679
+17 0.9679
+18 0.9669
+19 0.9669
+20 0.9669
+21 0.9669
+22 0.9669
+23 0.9669
+24 0.9669</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>topic3 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic3 =</span> <span class="st">'3'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic3) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic3)) <span class="sc">|&gt;</span>  </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, topic3)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>topic3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                        doc_id
+1                        X.The.More.It.s.Just.About.Trump..the.Bigger.the.Eventual.Crackup..Guest.Essay.txt.28
+2                                                                           Hasan.Piker.on.Charlie.Kirk.txt.33
+3                                               The.Conservatives.Who.Help.Explain.Republican.Extremism.txt.31
+4           Republican.Men.and.Women.Are.Changing.Their.Minds.About.How.Women.Should.Behave.Guest.Essay.txt.24
+5                                 What.Charlie.Kirk.Understood.That.Democrats.Need.to.Learn.Guest.Essay.txt.17
+6                                                                                   The.Leaderless.Left.txt.26
+7                                      The.Israel..Hamas.War.Will.Reshape.Western.Politics.Ross.Douthat.txt.11
+8                               X.Less.Burnout..More.Babies._.How.Conservatives.Are.Winning.Young.Women.txt.27
+9  Terrified.Parents..New.Age.Health.Nuts..MAGA.Exiles..Meet.the.R.F.K..Jr..Faithful..Michelle.Goldberg.txt.20
+10                                          The.Rise.of.a.Populist.Influencer.in.the.Age.of.Print.Media.txt.18
+11                            How.an.Empty.Internet.Gave.Us.Tradwives.and.Trump.Tressie.McMillan.Cottom.txt.12
+12                                             The.Harry.Potter.Generation.Needs.to.Grow.Up.Guest.Essay.txt.23
+13                          Why.Losing.Political.Power.Now.Feels.Like..Losing.Your.Country..Guest.Essay.txt.27
+14                                                        An.Empty.Internet.Gave.Us.Tradwives.and.Trump.txt.23
+15                                                                     Who.Are.R.F.K..Jr..s.Supporters_.txt.36
+16                            How.an.Empty.Internet.Gave.Us.Tradwives.and.Trump.Tressie.McMillan.Cottom.txt.23
+17                                                How.A.I...QAnon.and.Untruths.Are.Shaping.the.Election.txt.26
+18                  Christian.Women.Say.They.re.Not.Political..Their.Living.Rooms.Disagree..Guest.Essay.txt.21
+19                                                                                   Trolling.Democracy.txt.45
+20                                              Time.Is.Running.Out.for.Rahul.Gandhi.s.Vision.for.India.txt.42
+21                            How.an.Empty.Internet.Gave.Us.Tradwives.and.Trump.Tressie.McMillan.Cottom.txt.22
+   topic3
+1  0.9887
+2  0.9831
+3  0.9825
+4  0.9825
+5  0.9822
+6  0.9822
+7  0.9822
+8  0.9812
+9  0.9808
+10 0.9805
+11 0.9801
+12 0.9801
+13 0.9797
+14 0.9793
+15 0.9788
+16 0.9788
+17 0.9784
+18 0.9784
+19 0.9779
+20 0.9779
+21 0.9779</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>topic4 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic4 =</span> <span class="st">'4'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic4) <span class="sc">|&gt;</span> </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic4)) <span class="sc">|&gt;</span>  </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, topic4)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>topic4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                         doc_id
+1                                                                             America.Is.Atomizing.Ideas.txt.54
+2                                                                          One.Nation..Under.Atomization.txt.54
+3                                Democrats.Are.Losing.the.War.for.Attention..Badly..The.Ezra.Klein.Show.txt.284
+4                                 Mamdani.s.Victory.Is.Less.Significant.Than.You.Think.interesting.times.txt.24
+5                                              What.if.Facebook.Is.the.Real..Silent.Majority._.The.Shift.txt.20
+6                                     Conservative.Influencers.Tap.a.Nonprofit.to.Pay.for.Their.Security.txt.44
+7                                     Texas.Democrat.Accused.Of.Calling.Ex.Opponent..Mediocre.Black.Man..txt.21
+8                            Court.Blocks..Melanated..Activist.s.Electoral.Takeover.Of.Tiny.Texas.County.txt.24
+9   Leftists..Favorite.Streamer.Calls.Fall.Of.Soviet.Union..One.Of.The.Greatest.Catastrophes.Of.20th.Cen.txt.17
+10                       California.Republican.Party.Plans.To.Block.Candidates.Aligned.With.Nick.Fuentes.txt.22
+11                             Hakeem.Jeffries.Brings.All.Your.Favorite.Democrats.To.New.J6.Subcommittee.txt.25
+12          New..Revelation..Tells.Why.Democrats.Wouldn.t.Run.Someone.Other.Than.Biden.Or.Kamala.In.2024.txt.18
+13         Here.s.Where.Every.California.Democrat.Stands.On.The.Explosive.Eric.Swalwell.Rape.Allegations.txt.92
+14                     Quarter.Of.Young.Voters.Think.America..Better.Off..After.Kirk.Assassination_.Poll.txt.21
+15  Harris.Campaign.Chair.Defends.Spending.Six.Figures.To.Build.Set.For.Harris.Interview.On.Sex.Themed.P.txt.14
+16 X.It.s.Pretty.Bloody.Rich._.Piers.Morgan..Dave.Rubin.Tear.Into.Dem.Strategist.For.Playing..Dementia.C.txt.18
+17                  Kamala.Harris...Call.Her.Daddy..Episode.Flopped.For.This.Reason..Says.Dem.Strategist.txt.19
+18                                 ADAM.WEISS_.Trump.Is.Doing.Something.Unexpected...Making.The.GOP.Cool.txt.24
+19 X.I.Ended.Tim.Walz._.YouTuber.Who.Exposed.Somali.Fraud.Takes.Victory.Lap.After.Governor.Ends.Reelecti.txt.28
+20                                                       JOEY.MANNARINO_.Democrats.Have.Hit.A.Brick.Wall.txt.23
+21                                      Thomas.Massie.Says.He.Will.Force.Vote.On.Releasing.Epstein.Files.txt.22
+22   Former.Clinton.Pollster.Says.Harris...Inauthenticity..Is..The.Larger.Problem.She.Faces..In.Election.txt.15
+23                  Democrats..Latest.Attempt.To.Communicate.With.Normal.People.Falling.Flat.On.Its.Face.txt.22
+24       Halperin..Spicer..Ex.Dem.Strategist.Explain.Why.Dems..Epstein.Files.Push.Could.Backfire.On.Them.txt.23
+25         Tucker.Carlson.Reveals.Main.Issue.He.Feels.Is.On.Young.Voter.s.Minds..It.s.Not.What.You.Think.txt.32
+26  X.You.Have.A.Moment.Of.Self.Awareness_._.Piers.Morgan.Confronts.Liberal.Streamer.On.Being..So.Wrong..txt.17
+27  Patrick.Bet.David.Predicts.Dems.Will.Campaign.In..Weirdest.Way..For.2028..Try.To..Build.Up.Trump..Wh.txt.16
+   topic4
+1  0.9903
+2  0.9903
+3  0.9801
+4  0.9779
+5  0.9738
+6  0.9724
+7  0.9716
+8  0.9716
+9  0.9716
+10 0.9716
+11 0.9716
+12 0.9716
+13 0.9716
+14 0.9716
+15 0.9716
+16 0.9716
+17 0.9716
+18 0.9716
+19 0.9716
+20 0.9716
+21 0.9716
+22 0.9716
+23 0.9716
+24 0.9716
+25 0.9716
+26 0.9716
+27 0.9716</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>topic5 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic5 =</span> <span class="st">'5'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic5) <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic5)) <span class="sc">|&gt;</span>  </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, topic5)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>topic5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                         doc_id
+1    Moments.Ago_.U.S..Retaliatory.Strikes.On.Iran...L.A..Democrats.Miss.An.Easy.Layup..TN.GOP.Passes.New.txt.9
+2    Feds.Search.Omar.Home.As.Part.Of.Criminal.Probe..Saudi.Led.Coalition_.Intercepted.Ballistic.Missile..txt.9
+3  Wartime.Leadership.Of.Incumbent.Tested.At.The.Polls..Donald.Trump.Campaigns.In.Texas.With.One.Week.U.txt.204
+4  Trump.Says.Deal.Made.To.Boost.Presence.In.Greenland...Shipping.And.Energy.Threats.Weigh.Iran.Diploma.txt.230
+5    Golfers.Bust.Out.The.Trump.Dance.Moves..Comey.Never.Though.He.d.Be.Held.Accountable..Special.Electio.txt.8
+6    Hollywood.Stars.Pledge.To._Defend_.Constitution..Dems.Have.No.Real.Agenda..Newsom.Wants.To.Write.The.txt.8
+7    A.Closer.Look.At.Races.Crucial.To.Balance.of.Power..Democrats.Grapple.With.Hasan.Piker.Backlash..Adm.txt.8
+8   U.S..Strikes.Iran.In.Response.To.Surprise.Attack..Dr..Fauci.Pleads.The.Fifth.More.Than.100.Times..Ta.txt.24
+9   Donald.Trump.Threatens.Iran.After.Getting.DoorDash.Delivery..House.Ethics.Committee.Opens.Eric.Swale.txt.17
+10 Former.President.Pleads.Not.Guilty..Trump.And.Backers.Claim.Biden.Political.Interference..Trump.Alli.txt.228
+11  Country.Music.Legend.Dolly.Parton.Dead.At.80..Darline.Graham.Wins.Senate.Primary.Runoff.In.SC..LA.Ma.txt.25
+12  Donald.Trump.Stumps.For.Ken.Paxton.And.Honors.Artemis.Crew..Crowds.Gather.For.March.On.Washington...txt.167
+13 Hasan.Piker.Says.America.Is.Worse.Killer.Than.Al.Qaeda..Poverty.Fell.To.A.Record.Low.Under.President.txt.282
+14  Monster.Midterms.Mash_.Trump.Barnstorms.Across.The.Country.For.Republicans..TDS.Tunes_.Bruce.Springs.txt.10
+15   Russia.Accused.Of.Withholding.Information.On.Suspected.Plague.Death..U.S..Bombers.Depart.England.Fol.txt.5
+16  Trump.Influence.Looms.Large.Over.Key.Primaries..Jeffries.Pushes.Southern.College.Sports.Boycott..Tru.txt.67
+17   Trump.Admin.Unveils.Terms.Of.Proposed.Agreement..Trump.Delays.Hearing.For.DNI.Nominee.Jay.Clayton..T.txt.8
+18 MI.Among.Toss.ups.That.Could.Decide.Senate.Control..Protesters.Storm.Colosseum.In.Rome..Protests.Spr.txt.184
+19   Trump.Says.Deal.Made.To.Boost.Presence.In.Greenland...Shipping.And.Energy.Threats.Weigh.Iran.Diploma.txt.5
+20  Donald.Trump.Economic.Remarks.Amid.Effort.To.Reach.Iran.Deal..Abdul.El.Sayed.To.Face.Mike.Rogers.Aft.txt.54
+21  Minnesota.Democrat.Ilhan.Omar.Under.Federal.Criminal.Investigation..Houthi.Strike.On.Saudi.Airport..txt.239
+22 Democratic.Socialism.Gains.Momentum.In.The.U.S...Olive.Garden.Pasta.Pass.Sparks.Voter.I.D..Debate..M.txt.243
+23   Comey.Reacts.To.Federal.Indictment..Trump.Rejects.Criticism.Of.Comey.Indictment..Trump_._It.s.A.Pret.txt.5
+24 Feds.Search.Omar.Home.As.Part.Of.Criminal.Probe..Saudi.Led.Coalition_.Intercepted.Ballistic.Missile..txt.220
+25 Donald.Trump.Threatens.Iran.After.Getting.DoorDash.Delivery..House.Ethics.Committee.Opens.Eric.Swale.txt.242
+26 DOJ_.Non.Citizen.Registered.To.Vote.In.California...DOJ.Warns.Election.Fraud.Enforcement.To.Continue.txt.138
+   topic5
+1  0.9819
+2  0.9716
+3  0.9708
+4  0.9708
+5  0.9679
+6  0.9669
+7  0.9669
+8  0.9669
+9  0.9658
+10 0.9658
+11 0.9618
+12 0.9618
+13 0.9618
+14 0.9603
+15 0.9603
+16 0.9587
+17 0.9587
+18 0.9569
+19 0.9569
+20 0.9569
+21 0.9569
+22 0.9569
+23 0.9569
+24 0.9569
+25 0.9569
+26 0.9569</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>topic6 <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"doc_id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">topic6 =</span> <span class="st">'6'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, topic6) <span class="sc">|&gt;</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(topic6)) <span class="sc">|&gt;</span>  </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, topic6)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>topic6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                       doc_id
+1                                                    Talarico.Mounts.Effort.to.Win.Black.Texans..Trust.txt.16
+2                             Pressure.Builds.for.Democrat.in.Michigan.Senate.Race.to.Disavow.Streamer.txt.12
+3                                                                     Who.Are.R.F.K..Jr..s.Supporters_.txt.42
+4         Black.Caucus.launches.effort.to.boost.voting.among.Black..rural.and.young.voters.in.midterms.txt.15
+5                                   As.Harris.Visits.Detroit...Some.Democrats.See.Ground.to.Be.Made.Up.txt.34
+6  How.Abdul.El.Sayed.went.from.political.oblivion.to.progressive.breakthrough.in.Michigan.Senate.race.txt.12
+7                                 G.O.P..Supporters.Back.Trump..but.a.Third.Seek.a.Different.Direction.txt.15
+8                                    A.Senate.Primary.in.Texas.Tests.the.Future.of.Democratic.Politics.txt.28
+9                                         X2.Top.Democrats.Battle.to.Pick.Off.Texas.G.O.P..Senate.Seat.txt.28
+10                           Why.New.York..s.Orthodox.Jewish.Voters.Could.Tip.the.Battle.for.the.House.txt.21
+11                                                      Allies.of.Trump.Plan.to.Bolster.3rd.Party.Runs.txt.23
+12                                               Soros.Gives..10.Million.to.Newsom.Redistricting.Fight.txt.10
+13                                               Fringe.Views.in.Primary.Campaigns.Rattle.Florida.Jews.txt.14
+14                      The.Left.Notches.Another.Win.With.This.Secret.Weapon_.Old.Fashioned.Organizing.txt.24
+15                        Nazi.Jokes.and.Vulgar.Insults_.The.Edgy.Gun.Influencer.Embraced.by.the.G.O.P.txt.46
+16                                                  Here.s.What.Happened.in.the.Texas.Runoff.Elections.txt.25
+17                           AOC.Picks.Fight.With.Worst.Possible.Trump.Official.After.Livestream.Stunt.txt.24
+18                 Two.Dan.Sullivans_.Alaska.G.O.P..Suggests.Kicking.One.Off.the.Ballot.in.Senate.Race.txt.11
+19                       El.Sayed.Wants.to.Mend.Ties.With.Jewish.Democrats..but.Some.Are.Not.Impressed.txt.14
+20                                                 Jewish.Leaders.in.Michigan.Speak.Out.in.Senate.Race.txt.25
+21                                        Biden.Hits.the.Trail..Fresh.Off.a.String.Of.Legislative.Wins.txt.40
+22                                 The.Latest._.Election.shifts.the.European.Parliament.further.right.txt.133
+23                                     Michigan.Candidate.Is.Trying.to.Mend.Ties.With.Jewish.Democrats.txt.14
+   topic6
+1  0.9797
+2  0.9797
+3  0.9797
+4  0.9793
+5  0.9788
+6  0.9779
+7  0.9779
+8  0.9769
+9  0.9769
+10 0.9769
+11 0.9769
+12 0.9763
+13 0.9763
+14 0.9757
+15 0.9757
+16 0.9757
+17 0.9757
+18 0.9751
+19 0.9751
+20 0.9751
+21 0.9751
+22 0.9751
+23 0.9751</code></pre>
+</div>
+</div>
+<p>Topic 1: trump said presid state hous feder administr law elect govern/ Topic 2: think know peopl like end video just want get clip/ Topic 3: said “ polit ’s — peopl like trump one word/ Topic 4: new time york media post social polit campaign influenc right/ Topic 5: news fox thank right now bodi presid well iran yes/ Topic 6: democrat republican trump elect parti voter senat presid state campaign/</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add categories</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>vizDataFrame <span class="ot">&lt;-</span> vizDataFrame <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"trump said presid state hous feder administr law elect govern"</span>) <span class="sc">~</span> <span class="st">"Trump_Administration"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"think know peopl like end video just want get clip"</span>) <span class="sc">~</span> <span class="st">"Political_Broadcast"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"said “ polit ’s — peopl like trump one word"</span>) <span class="sc">~</span> <span class="st">"Political_Culture"</span>,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"new time york media post social polit campaign influenc right"</span>) <span class="sc">~</span> <span class="st">"Digital_politics"</span>,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"news fox thank right now bodi presid well iran yes"</span>) <span class="sc">~</span> <span class="st">"Political_News"</span>,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_detect</span>(variable, <span class="st">"democrat republican trump elect parti voter senat presid state campaign"</span>) <span class="sc">~</span> <span class="st">"Elections_Campaigns"</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+</section>
+<section id="fact-check-and-validate-topics" class="level1">
+<h1>Fact Check and Validate Topics</h1>
+<p>Topic 1: Trump Administration “trump said presid state hous feder administr law elect govern” Topic 2: Political Broadcast “think know peopl like end video just want get clip” Topic 3: Political Culture “said “ polit ’s — peopl like trump one word” Topic 4: Digital_politics “new time york media post social polit campaign influenc right” Topic 5: Political News “news fox thank right now bodi presid well iran yes” Topic 6: Elections and Campaigns “democrat republican trump elect parti voter senat presid state campaign”</p>
+<section id="for-trump_administration" class="level3">
+<h3 class="anchored" data-anchor-id="for-trump_administration">for trump_administration</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>theta2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(theta)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>trump_administration <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># renaming for a general topic</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">trump_administration =</span> <span class="st">'1'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, trump_administration) <span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(trump_administration)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(trump_administration)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply rownames_to_column</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>trump_administration <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  trump_administration, <span class="st">"story_id"</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove leading "X." if present</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>trump_administration<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  trump_administration<span class="sc">$</span>story_id, <span class="st">"^X</span><span class="sc">\\</span><span class="st">."</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Used AI to accommodate the code for my story IDs.</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove trailing segment number</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>trump_administration<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  trump_administration<span class="sc">$</span>story_id, <span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+$"</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_administration<span class="sc">$</span>story_id, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "The.Pardon.Brokers.txt"                                                                                  
+ [2] "Foreign.Influencers.txt"                                                                                 
+ [3] "How.to.Get.a.Pardon.in.Trump.s.Washington.txt"                                                           
+ [4] "How.to.Get.a.Pardon.in.Trump.s.Washington.txt"                                                           
+ [5] "Trump.Revives.Conspiracy.Theories.About.2020.Election.as.Midterms.Loom.txt"                              
+ [6] "Power.Play.txt"                                                                                          
+ [7] "Another.Late.Night.DoJ.Anti.Trump._Bombshell_.Leak..Dems.Hope.Fake.Populists.Will.Fool.Voters..Tim.R.txt"
+ [8] "Clear.Threat._.Critics.Raise.Concern..RESTRICT..Act.Empowers.Biden.While.Leaving.Chinese..Spyware..txt"  
+ [9] "The.Latest_.SCOTUS.allows.Trump_u2019s.White.House.ballroom.construction.to.continue.txt"                
+[10] "His.Opponents.Keep.Talking.About.His.Past.Ties.to.a.Militant.Cleric.txt"                                 
+[11] "Complaints.about.Data.Centers.in.U.S..Examined..Tech.Company.CEO.Interviewed.on.Challenges.in.U.S..f.txt"
+[12] "Trump.mired.in.Epstein.controversy.as.Wall.Street.Journal.reports.on.2003.letter.txt"                    
+[13] "Democrat.Rep.Robert.Garcia.Says.Trump..Melania.Will.Be.Hauled.Before.Congress.If.His.Party.Takes.Bac.txt"
+[14] "Google.Co.Founder.Seeds.Billionaire.Political.Effort.Amid.Wealth.Tax.Debate.txt"                         
+[15] "Trump.Revives.2020.Election.Conspiracy.Theories.as.Midterms.Loom.txt"                                    
+[16] "Congress.collected.30.million.lines.of.phone.data.in.Trump.J6.probe..raising.civil.liberty.concerns.txt" 
+[17] "A.Schism.Over.Epstein.Files..but.Bondi.Has.Trump.s.Backing.txt"                                          
+[18] "The.Pardon.Brokers.txt"                                                                                  
+[19] "Even.After.Bondi.Gains.Trump.s.Backing..Her.Survival.Remains.an.Open.Question.news.analysis.txt"         
+[20] "Officials.Move.to.Open.Inquiry.on.Trump.s..Russia.Hoax..Grievance.txt"                                   </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checks out</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="for-digital_politics" class="level3">
+<h3 class="anchored" data-anchor-id="for-digital_politics">for digital_politics</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>theta2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(theta)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>digital_politics <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># renaming for a general topic</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">digital_politics =</span> <span class="st">'4'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, digital_politics) <span class="sc">%&gt;%</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(digital_politics)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(digital_politics)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply rownames_to_column</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>digital_politics <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  digital_politics, <span class="st">"story_id"</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove leading "X." if present</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>digital_politics<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  digital_politics<span class="sc">$</span>story_id, <span class="st">"^X</span><span class="sc">\\</span><span class="st">."</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Used AI to accommodate the code for my story IDs.</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove trailing segment number</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>digital_politics<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  digital_politics<span class="sc">$</span>story_id, <span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+$"</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(digital_politics<span class="sc">$</span>story_id, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "America.Is.Atomizing.Ideas.txt"                                                                          
+ [2] "One.Nation..Under.Atomization.txt"                                                                       
+ [3] "Democrats.Are.Losing.the.War.for.Attention..Badly..The.Ezra.Klein.Show.txt"                              
+ [4] "Mamdani.s.Victory.Is.Less.Significant.Than.You.Think.interesting.times.txt"                              
+ [5] "What.if.Facebook.Is.the.Real..Silent.Majority._.The.Shift.txt"                                           
+ [6] "Conservative.Influencers.Tap.a.Nonprofit.to.Pay.for.Their.Security.txt"                                  
+ [7] "Texas.Democrat.Accused.Of.Calling.Ex.Opponent..Mediocre.Black.Man..txt"                                  
+ [8] "Court.Blocks..Melanated..Activist.s.Electoral.Takeover.Of.Tiny.Texas.County.txt"                         
+ [9] "Leftists..Favorite.Streamer.Calls.Fall.Of.Soviet.Union..One.Of.The.Greatest.Catastrophes.Of.20th.Cen.txt"
+[10] "California.Republican.Party.Plans.To.Block.Candidates.Aligned.With.Nick.Fuentes.txt"                     
+[11] "Hakeem.Jeffries.Brings.All.Your.Favorite.Democrats.To.New.J6.Subcommittee.txt"                           
+[12] "New..Revelation..Tells.Why.Democrats.Wouldn.t.Run.Someone.Other.Than.Biden.Or.Kamala.In.2024.txt"        
+[13] "Here.s.Where.Every.California.Democrat.Stands.On.The.Explosive.Eric.Swalwell.Rape.Allegations.txt"       
+[14] "Quarter.Of.Young.Voters.Think.America..Better.Off..After.Kirk.Assassination_.Poll.txt"                   
+[15] "Harris.Campaign.Chair.Defends.Spending.Six.Figures.To.Build.Set.For.Harris.Interview.On.Sex.Themed.P.txt"
+[16] "It.s.Pretty.Bloody.Rich._.Piers.Morgan..Dave.Rubin.Tear.Into.Dem.Strategist.For.Playing..Dementia.C.txt" 
+[17] "Kamala.Harris...Call.Her.Daddy..Episode.Flopped.For.This.Reason..Says.Dem.Strategist.txt"                
+[18] "ADAM.WEISS_.Trump.Is.Doing.Something.Unexpected...Making.The.GOP.Cool.txt"                               
+[19] "I.Ended.Tim.Walz._.YouTuber.Who.Exposed.Somali.Fraud.Takes.Victory.Lap.After.Governor.Ends.Reelecti.txt" 
+[20] "JOEY.MANNARINO_.Democrats.Have.Hit.A.Brick.Wall.txt"                                                     </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checks out</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Main theme: Digital Politics and Online Political Influence</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="for-political_culture" class="level3">
+<h3 class="anchored" data-anchor-id="for-political_culture">for political_culture</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">### for political_culture</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>theta2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(theta)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>political_culture <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># renaming for a general topic</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">political_culture =</span> <span class="st">'3'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, political_culture) <span class="sc">%&gt;%</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(political_culture)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(political_culture)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply rownames_to_column</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>political_culture <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  political_culture, <span class="st">"story_id"</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove leading "X." if present</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>political_culture<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>  political_culture<span class="sc">$</span>story_id, <span class="st">"^X</span><span class="sc">\\</span><span class="st">."</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove trailing segment number</span></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>political_culture<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  political_culture<span class="sc">$</span>story_id, <span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+$"</span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(political_culture<span class="sc">$</span>story_id, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "The.More.It.s.Just.About.Trump..the.Bigger.the.Eventual.Crackup..Guest.Essay.txt"                        
+ [2] "Hasan.Piker.on.Charlie.Kirk.txt"                                                                         
+ [3] "The.Conservatives.Who.Help.Explain.Republican.Extremism.txt"                                             
+ [4] "Republican.Men.and.Women.Are.Changing.Their.Minds.About.How.Women.Should.Behave.Guest.Essay.txt"         
+ [5] "What.Charlie.Kirk.Understood.That.Democrats.Need.to.Learn.Guest.Essay.txt"                               
+ [6] "The.Leaderless.Left.txt"                                                                                 
+ [7] "The.Israel..Hamas.War.Will.Reshape.Western.Politics.Ross.Douthat.txt"                                    
+ [8] "Less.Burnout..More.Babies._.How.Conservatives.Are.Winning.Young.Women.txt"                               
+ [9] "Terrified.Parents..New.Age.Health.Nuts..MAGA.Exiles..Meet.the.R.F.K..Jr..Faithful..Michelle.Goldberg.txt"
+[10] "The.Rise.of.a.Populist.Influencer.in.the.Age.of.Print.Media.txt"                                         
+[11] "How.an.Empty.Internet.Gave.Us.Tradwives.and.Trump.Tressie.McMillan.Cottom.txt"                           
+[12] "The.Harry.Potter.Generation.Needs.to.Grow.Up.Guest.Essay.txt"                                            
+[13] "Why.Losing.Political.Power.Now.Feels.Like..Losing.Your.Country..Guest.Essay.txt"                         
+[14] "An.Empty.Internet.Gave.Us.Tradwives.and.Trump.txt"                                                       
+[15] "Who.Are.R.F.K..Jr..s.Supporters_.txt"                                                                    
+[16] "How.an.Empty.Internet.Gave.Us.Tradwives.and.Trump.Tressie.McMillan.Cottom.txt"                           
+[17] "How.A.I...QAnon.and.Untruths.Are.Shaping.the.Election.txt"                                               
+[18] "Christian.Women.Say.They.re.Not.Political..Their.Living.Rooms.Disagree..Guest.Essay.txt"                 
+[19] "Trolling.Democracy.txt"                                                                                  
+[20] "Time.Is.Running.Out.for.Rahul.Gandhi.s.Vision.for.India.txt"                                             </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checks out</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Main theme appears to be political culture and ideological identity</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="for-elections_campaigns" class="level3">
+<h3 class="anchored" data-anchor-id="for-elections_campaigns">for elections_campaigns</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>theta2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(theta)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>elections_campaigns <span class="ot">&lt;-</span> theta2 <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># renaming for a general topic</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">elections_campaigns =</span> <span class="st">'6'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>, elections_campaigns) <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(elections_campaigns)) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(elections_campaigns)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply rownames_to_column</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>elections_campaigns <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  elections_campaigns, <span class="st">"story_id"</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove leading "X." if present</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>elections_campaigns<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  elections_campaigns<span class="sc">$</span>story_id, <span class="st">"^X</span><span class="sc">\\</span><span class="st">."</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove trailing segment number</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>elections_campaigns<span class="sc">$</span>story_id <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>  elections_campaigns<span class="sc">$</span>story_id, <span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+$"</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elections_campaigns<span class="sc">$</span>story_id, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Talarico.Mounts.Effort.to.Win.Black.Texans..Trust.txt"                                                  
+ [2] "Pressure.Builds.for.Democrat.in.Michigan.Senate.Race.to.Disavow.Streamer.txt"                           
+ [3] "Who.Are.R.F.K..Jr..s.Supporters_.txt"                                                                   
+ [4] "Black.Caucus.launches.effort.to.boost.voting.among.Black..rural.and.young.voters.in.midterms.txt"       
+ [5] "As.Harris.Visits.Detroit...Some.Democrats.See.Ground.to.Be.Made.Up.txt"                                 
+ [6] "How.Abdul.El.Sayed.went.from.political.oblivion.to.progressive.breakthrough.in.Michigan.Senate.race.txt"
+ [7] "G.O.P..Supporters.Back.Trump..but.a.Third.Seek.a.Different.Direction.txt"                               
+ [8] "A.Senate.Primary.in.Texas.Tests.the.Future.of.Democratic.Politics.txt"                                  
+ [9] "X2.Top.Democrats.Battle.to.Pick.Off.Texas.G.O.P..Senate.Seat.txt"                                       
+[10] "Why.New.York..s.Orthodox.Jewish.Voters.Could.Tip.the.Battle.for.the.House.txt"                          
+[11] "Allies.of.Trump.Plan.to.Bolster.3rd.Party.Runs.txt"                                                     
+[12] "Soros.Gives..10.Million.to.Newsom.Redistricting.Fight.txt"                                              
+[13] "Fringe.Views.in.Primary.Campaigns.Rattle.Florida.Jews.txt"                                              
+[14] "The.Left.Notches.Another.Win.With.This.Secret.Weapon_.Old.Fashioned.Organizing.txt"                     
+[15] "Nazi.Jokes.and.Vulgar.Insults_.The.Edgy.Gun.Influencer.Embraced.by.the.G.O.P.txt"                       
+[16] "Here.s.What.Happened.in.the.Texas.Runoff.Elections.txt"                                                 
+[17] "AOC.Picks.Fight.With.Worst.Possible.Trump.Official.After.Livestream.Stunt.txt"                          
+[18] "Two.Dan.Sullivans_.Alaska.G.O.P..Suggests.Kicking.One.Off.the.Ballot.in.Senate.Race.txt"                
+[19] "El.Sayed.Wants.to.Mend.Ties.With.Jewish.Democrats..but.Some.Are.Not.Impressed.txt"                      
+[20] "Jewish.Leaders.in.Michigan.Speak.Out.in.Senate.Race.txt"                                                </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checks out</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="figure-political-influencer-topics-by-year" class="level1">
+<h1>Figure: political influencer topics by year</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Political%20influencer%20topics%20by%20year-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <section id="set-up-for-hosting" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-for-hosting">Set up for hosting</h2>
 <ul>
