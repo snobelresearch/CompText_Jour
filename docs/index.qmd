@@ -2,8 +2,10 @@
 title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling"
 author: "Shahariar Nobel"
 date: '2026-11-14'
-output: html_document
+format: html
 ---
+
+WELLS FIXING
 
 #--------------------------------------------- \# Representation of Political Influencers in U.S. Newspapers Topic Modeling #---------------------------------------------
 
@@ -43,22 +45,10 @@ library(flextable)
 
 ```{r include=FALSE}
 
-library(googledrive)
-library(readr)
-
-# AI Given Code
-
-# Access public Google Drive files without signing in
-drive_deauth()
-
-# Download the dataset
-drive_download(
-  as_id("https://drive.google.com/file/d/19Jp6fXZINmE3KJFm6qhWatbBt_gJzH3D/view?usp=drive_link"),
-  path = "nexis_master_articles_df_SN.csv",
-  overwrite = TRUE
-)
-
-# Import data
+# Import data from the local copy in this docs/ folder.
+# The CSV (227 MB) is too large for GitHub, so it is listed in .gitignore
+# and is NOT uploaded; it only needs to exist on this computer for rendering.
+# Original source: https://drive.google.com/file/d/19Jp6fXZINmE3KJFm6qhWatbBt_gJzH3D/view
 pol_influ <- read_csv("nexis_master_articles_df_SN.csv")
 
 ```
