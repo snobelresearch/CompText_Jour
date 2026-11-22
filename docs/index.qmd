@@ -1,13 +1,11 @@
----
-title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling"
-author: "Shahariar Nobel"
-date: '2026-11-14'
-format: html
----
+|  |
+|----|
+| title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling" |
+| author: "Shahariar Nobel" |
+| date: '2026-11-14' |
+| format: html |
 
-WELLS FIXING
-
-#--------------------------------------------- \# Representation of Political Influencers in U.S. Newspapers Topic Modeling #---------------------------------------------
+This page uses topic modeling (LDA) to identify the main themes in U.S. news coverage of political social media influencers, based on articles collected from NexisUni.
 
 # Load Libraries
 
@@ -40,24 +38,37 @@ library(flextable)
 
 ```
 
-
 ### Import Data
 
 ```{r include=FALSE}
 
-# Import data from the local copy in this docs/ folder.
-# The CSV (227 MB) is too large for GitHub, so it is listed in .gitignore
-# and is NOT uploaded; it only needs to exist on this computer for rendering.
-# Original source: https://drive.google.com/file/d/19Jp6fXZINmE3KJFm6qhWatbBt_gJzH3D/view
-pol_influ <- read_csv("nexis_master_articles_df_SN.csv")
+library(readr)
 
+# 1. Dropbox file link, ending in dl=1 so it downloads the CSV directly
+dropbox_url <- "https://www.dropbox.com/scl/fi/rpmvj26w27bamuljiwrgk/nexis_master_articles_df_SN.csv?rlkey=2vd1bfk1e9tk2fcwh59a00baq&st=4a0f0407&dl=1"
+
+# Allow up to 10 minutes for the large download (R's default is 60 seconds)
+options(timeout = 600) # ()
+
+# 2. Create a temporary path that won't touch the git project folder
+tmp <- tempfile(fileext = ".csv")
+
+# 3. Download the file into the temporary space
+download.file(dropbox_url, destfile = tmp, mode = "wb")
+
+# 4. Read the CSV into R
+pol_influ <- read_csv(tmp)
+
+# 5. Delete the temporary file (the data stays loaded in R's memory)
+unlink(tmp)
 ```
 
-# Topic Modeling 
+# Topic Modeling
 
 ### Process into corpus object
 
 ```{r}
+#| include: false
 textdata <- pol_influ %>% 
   mutate(year = str_sub(published_date, 1, 4)) %>% # creates the year column
   select(filename, sentence, year) %>% 
@@ -68,6 +79,7 @@ textdata <- pol_influ %>%
 ### Remove stopwords, clean corpus
 
 ```{r}
+#| include: false
 # 1. Define standard stopwords
 english_stopwords <- stopwords("en")
 
@@ -88,6 +100,7 @@ processedCorpus <- tm_map(processedCorpus, stripWhitespace)
 ```
 
 ```{r tm3a}
+#| include: false
 #DTM: rows correspond to the documents in the corpus. Columns correspond to the terms in the documents. Cells correspond to the weights of the terms. (Girder)
 # compute document term matrix with terms >= minimumFrequency
 minimumFrequency <- 5
@@ -138,6 +151,7 @@ articles_years %>%
 ```
 
 ```{r tm12}
+#| include: false
 # number of topics
 # K <- 20
 K <- 6
@@ -154,6 +168,7 @@ topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset t
 ### Mean topic proportions per year
 
 ```{r}
+#| include: false
 
 # Step 1: Check dimensions
 n_theta <- nrow(theta)
@@ -189,6 +204,7 @@ vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
 #Examine topic names
 
 ```{r}
+#| include: false
 #enframe(): Converts a named list into a dataframe.
 topics <- enframe(topicNames, name = "number", value = "text") %>% 
   unnest(cols = c(text)) 
@@ -199,6 +215,7 @@ topics
 ### Review the topics and determine a 1-2 word label after reading the source documents.
 
 ```{r}
+#| include: false
 
 #Topics 
 
@@ -264,14 +281,10 @@ topic6
 
 ```
 
-Topic 1: trump said presid state hous feder administr law elect govern/
-Topic 2: think know peopl like end video just want get clip/
-Topic 3: said “ polit ’s — peopl like trump one word/
-Topic 4: new time york media post social polit campaign influenc right/
-Topic 5: news fox thank right now bodi presid well iran yes/
-Topic 6: democrat republican trump elect parti voter senat presid state campaign/
+Topic 1: trump said presid state hous feder administr law elect govern/ Topic 2: think know peopl like end video just want get clip/ Topic 3: said “ polit ’s — peopl like trump one word/ Topic 4: new time york media post social polit campaign influenc right/ Topic 5: news fox thank right now bodi presid well iran yes/ Topic 6: democrat republican trump elect parti voter senat presid state campaign/
 
 ```{r}
+#| include: false
 
 # add categories
 
@@ -294,6 +307,7 @@ Topic 1: Trump Administration "trump said presid state hous feder administr law 
 ### for trump_administration
 
 ```{r}
+#| include: false
 
 theta2 <- as.data.frame(theta)
 
@@ -328,6 +342,7 @@ head(trump_administration$story_id, 20)
 ### for digital_politics
 
 ```{r}
+#| include: false
 theta2 <- as.data.frame(theta)
 
 digital_politics <- theta2 %>% 
@@ -361,6 +376,7 @@ head(digital_politics$story_id, 20)
 ### for political_culture
 
 ```{r}
+#| include: false
 ### for political_culture
 
 theta2 <- as.data.frame(theta)
@@ -397,6 +413,7 @@ head(political_culture$story_id, 20)
 ### for elections_campaigns
 
 ```{r}
+#| include: false
 
 theta2 <- as.data.frame(theta)
 
@@ -453,97 +470,3 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
 
 # ggsave(here::here("../lynching_press/output_images_tables/Article_Images/Figure_15_white_topics_oct_19_2024.png"),device = "png",width=9,height=6, dpi=800)
 ```
-
-## Set up for hosting
-
-- Create a new folder in your repository called "docs" (if one isn't there already)
-- Rename this document as "index.qmd"
-- Move "index.qmd" into the "docs" folder
-
-## Render this document as an html page
-
-- Make sure this document is named "index.qmd" and is in the "docs" folder
-- Click Render button. It will create an html version of this page, called "index.html"
-- Use GitHub Desktop to push your files to your your github repository on the web.
-- Access the URL from your Github repository.
-
-## Host html on GitHub
-
-- Go to your github repository on the web, such as https://github.com/djnf-data-2026/casey-mann
-- Click on Settings on the top right.
-- Scroll down to the Pages section of Settings.
-- Change the Branch to /docs and click save.
-
-#### To see your file hosted:
-
-- Back to your GitHub repo on the web: such as https://github.com/djnf-data-2026/casey-mann
-- Click on Settings, then Pages
-- Under GitHub Pages, you should see "Your site is live at https://djnf-data-2026.github.io/casey-mann/"
-- Click that URL
-- If it works, email it to robwells\@umd.edu
-
-## REVEL IN YOUR NERD POWERS
-
-# Part 2: Embedding Images
-
-- create a folder in your repository's main branch, call it images
-
-- find any .jpeg, .jpg or .png file and insert it into that folder.
-
-- In a QMD file, display the image as follows:
-
-\#![CAPTION FOR YOUR PHOTO](images/your_link_here.png)
-
-\#![CHATTER FOR YOUR chart](images/xl-refresher-grid_SHEETS.png)
-
-A more advanced technique controlling the width and height
-
-\#![Read the Screen](images/xl-refresher-SHEETS_screen.png){width="100%"}
-
-### Embedding code
-
-From a **Datawrapper Map**
-
-<iframe title="Small Business Reporting, Spring 2024" aria-label="Map" id="datawrapper-chart-z4bny" src="https://datawrapper.dwcdn.net/z4bny/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500" data-external="1">
-
-</iframe>
-
-```{=html}
-<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-</script>
-```
-
-## Embedding video
-
-### Deep Nerd Video
-
-::: {#first_steps}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TNP_unReOpw?si=CQC3cG49TShkoJOG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-</iframe>
-:::
-
-::: {#second_steps}
-### A great lecture on structural racism in journalism
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DIDHbEZYFSc?si=a-KNzlQgoGjXD6VV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-</iframe>
-:::
-
-**Now replace these two videos with something you selected.**
-
-The embed code is in the video share feature
-
-## Instructions to embed a gif
-
-```{r text_to_columns.gif, out.width="100%", echo=FALSE}
-### Embed a GIF
-#First, download a GIF (extension will be .gif) and load it into "images" folder
-#if (knitr::is_html_output()) knitr::include_graphics("images/text_to_columns.gif")  
-
-```
-
-This is a very basic starter but it will get you to the finish line on Saturday. Good luck!
-
---30--
