@@ -64,31 +64,15 @@ ul.task-list li input[type="checkbox"] {
 <td>author: “Shahariar Nobel”</td>
 </tr>
 <tr class="odd">
-<td>date: ‘2026-11-14’</td>
+<td>date: ‘2026-11-21’</td>
 </tr>
 <tr class="even">
 <td>format: html</td>
 </tr>
 </tbody>
 </table>
-<p>This page uses topic modeling (LDA) to identify the main themes in U.S. news coverage of political social media influencers, based on articles collected from NexisUni.</p>
-<section id="load-libraries" class="level1">
-<h1>Load Libraries</h1>
-<section id="import-data" class="level3">
-<h3 class="anchored" data-anchor-id="import-data">Import Data</h3>
-</section>
-</section>
-<section id="topic-modeling" class="level1">
-<h1>Topic Modeling</h1>
-<section id="process-into-corpus-object" class="level3">
-<h3 class="anchored" data-anchor-id="process-into-corpus-object">Process into corpus object</h3>
-</section>
-<section id="remove-stopwords-clean-corpus" class="level3">
-<h3 class="anchored" data-anchor-id="remove-stopwords-clean-corpus">Remove stopwords, clean corpus</h3>
-</section>
-<section id="topic-proportions-over-time" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="topic-proportions-over-time">Topic proportions over time</h2>
-<p>We examine topics in the data over time by aggregating mean topic proportions per year. These aggregated topic proportions can then be visualized, e.g.&nbsp;as a bar plot.</p>
+<p>This page is a visual summary of a topic modeling (LDA) analysis identifying the main themes in U.S. news coverage of political social media influencers. The analysis is based on a pilot subset of a larger 3,108-article corpus of 1,384 English-language articles from 13 U.S. outlets classified as left-, center-, or right-leaning by AllSides. The articles were retrieved from NexisUni using searches combining influencer-related and political terms.</p>
+<p>Steps completed for the topic modeling: Imported the NexisUni articles and removed duplicate or unmatched records. Split the articles into text segments and created a corpus object. Cleaned the text: lowercasing, removing stopwords and punctuation, and stemming. Built a document-term matrix, keeping terms that appear at least 5 times. Fit an LDA model with 6 topics (Gibbs sampling, seed = 9161, 500 iterations, alpha = 0.2). Examined the top terms for each topic and assigned provisional labels. Calculated topic proportions by year. Validated the labels by reading the source articles most associated with each topic.</p>
 <p>Articles per year</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -151,32 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-<section id="mean-topic-proportions-per-year" class="level3">
-<h3 class="anchored" data-anchor-id="mean-topic-proportions-per-year">Mean topic proportions per year</h3>
-<p>#Examine topic names</p>
-</section>
-<section id="review-the-topics-and-determine-a-1-2-word-label-after-reading-the-source-documents." class="level3">
-<h3 class="anchored" data-anchor-id="review-the-topics-and-determine-a-1-2-word-label-after-reading-the-source-documents.">Review the topics and determine a 1-2 word label after reading the source documents.</h3>
 <p>Topic 1: trump said presid state hous feder administr law elect govern/ Topic 2: think know peopl like end video just want get clip/ Topic 3: said “ polit ’s — peopl like trump one word/ Topic 4: new time york media post social polit campaign influenc right/ Topic 5: news fox thank right now bodi presid well iran yes/ Topic 6: democrat republican trump elect parti voter senat presid state campaign/</p>
-</section>
-</section>
-</section>
-<section id="fact-check-and-validate-topics" class="level1">
-<h1>Fact Check and Validate Topics</h1>
-<p>Topic 1: Trump Administration “trump said presid state hous feder administr law elect govern” Topic 2: Political Broadcast “think know peopl like end video just want get clip” Topic 3: Political Culture “said “ polit ’s — peopl like trump one word” Topic 4: Digital_politics “new time york media post social polit campaign influenc right” Topic 5: Political News “news fox thank right now bodi presid well iran yes” Topic 6: Elections and Campaigns “democrat republican trump elect parti voter senat presid state campaign”</p>
-<section id="for-trump_administration" class="level3">
-<h3 class="anchored" data-anchor-id="for-trump_administration">for trump_administration</h3>
-</section>
-<section id="for-digital_politics" class="level3">
-<h3 class="anchored" data-anchor-id="for-digital_politics">for digital_politics</h3>
-</section>
-<section id="for-political_culture" class="level3">
-<h3 class="anchored" data-anchor-id="for-political_culture">for political_culture</h3>
-</section>
-<section id="for-elections_campaigns" class="level3">
-<h3 class="anchored" data-anchor-id="for-elections_campaigns">for elections_campaigns</h3>
-</section>
-</section>
 <section id="figure-political-influencer-topics-by-year" class="level1">
 <h1>Figure: political influencer topics by year</h1>
 <div class="cell">

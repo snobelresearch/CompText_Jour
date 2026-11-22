@@ -2,12 +2,20 @@
 |----|
 | title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling" |
 | author: "Shahariar Nobel" |
-| date: '2026-11-14' |
+| date: '2026-11-21' |
 | format: html |
 
-This page uses topic modeling (LDA) to identify the main themes in U.S. news coverage of political social media influencers, based on articles collected from NexisUni.
+This page is a visual summary of a topic modeling (LDA) analysis identifying the main themes in U.S. news coverage of political social media influencers. The analysis is based on a pilot subset of a larger 3,108-article corpus of 1,384 English-language articles from 13 U.S. outlets classified as left-, center-, or right-leaning by AllSides. The articles were retrieved from NexisUni using searches combining influencer-related and political terms.
 
-# Load Libraries
+Steps completed for the topic modeling: 
+Imported the NexisUni articles and removed duplicate or unmatched records.
+Split the articles into text segments and created a corpus object.
+Cleaned the text: lowercasing, removing stopwords and punctuation, and stemming.
+Built a document-term matrix, keeping terms that appear at least 5 times.
+Fit an LDA model with 6 topics (Gibbs sampling, seed = 9161, 500 iterations, alpha = 0.2).
+Examined the top terms for each topic and assigned provisional labels.
+Calculated topic proportions by year.
+Validated the labels by reading the source articles most associated with each topic.
 
 ```{r include=FALSE}
 # set options
@@ -38,7 +46,6 @@ library(flextable)
 
 ```
 
-### Import Data
 
 ```{r include=FALSE}
 
@@ -48,7 +55,7 @@ library(readr)
 dropbox_url <- "https://www.dropbox.com/scl/fi/rpmvj26w27bamuljiwrgk/nexis_master_articles_df_SN.csv?rlkey=2vd1bfk1e9tk2fcwh59a00baq&st=4a0f0407&dl=1"
 
 # Allow up to 10 minutes for the large download (R's default is 60 seconds)
-options(timeout = 600) # ()
+options(timeout = 600) # (#)
 
 # 2. Create a temporary path that won't touch the git project folder
 tmp <- tempfile(fileext = ".csv")
@@ -63,9 +70,6 @@ pol_influ <- read_csv(tmp)
 unlink(tmp)
 ```
 
-# Topic Modeling
-
-### Process into corpus object
 
 ```{r}
 #| include: false
@@ -76,7 +80,6 @@ textdata <- pol_influ %>%
   rename(doc_id = filename, text = sentence)
 ```
 
-### Remove stopwords, clean corpus
 
 ```{r}
 #| include: false
@@ -118,10 +121,6 @@ textdata <- textdata[sel_idx, ]
 # 5 term minimum[1] [1] 99631 14223
 
 ```
-
-## Topic proportions over time {.unnumbered}
-
-We examine topics in the data over time by aggregating mean topic proportions per year. These aggregated topic proportions can then be visualized, e.g. as a bar plot.
 
 Articles per year
 
@@ -165,8 +164,6 @@ beta <- tmResult$terms
 topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset topicnames
 ```
 
-### Mean topic proportions per year
-
 ```{r}
 #| include: false
 
@@ -201,8 +198,6 @@ vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
 
 ```
 
-#Examine topic names
-
 ```{r}
 #| include: false
 #enframe(): Converts a named list into a dataframe.
@@ -211,8 +206,6 @@ topics <- enframe(topicNames, name = "number", value = "text") %>%
   
 topics
 ```
-
-### Review the topics and determine a 1-2 word label after reading the source documents.
 
 ```{r}
 #| include: false
@@ -300,11 +293,6 @@ vizDataFrame <- vizDataFrame %>%
 
 ```
 
-# Fact Check and Validate Topics
-
-Topic 1: Trump Administration "trump said presid state hous feder administr law elect govern" Topic 2: Political Broadcast "think know peopl like end video just want get clip" Topic 3: Political Culture "said “ polit ’s — peopl like trump one word" Topic 4: Digital_politics "new time york media post social polit campaign influenc right" Topic 5: Political News "news fox thank right now bodi presid well iran yes" Topic 6: Elections and Campaigns "democrat republican trump elect parti voter senat presid state campaign"
-
-### for trump_administration
 
 ```{r}
 #| include: false
@@ -339,8 +327,6 @@ head(trump_administration$story_id, 20)
 
 ```
 
-### for digital_politics
-
 ```{r}
 #| include: false
 theta2 <- as.data.frame(theta)
@@ -373,7 +359,6 @@ head(digital_politics$story_id, 20)
 # Main theme: Digital Politics and Online Political Influence
 ```
 
-### for political_culture
 
 ```{r}
 #| include: false
@@ -410,7 +395,6 @@ head(political_culture$story_id, 20)
 
 ```
 
-### for elections_campaigns
 
 ```{r}
 #| include: false
