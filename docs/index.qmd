@@ -1,13 +1,14 @@
-|  |
-|----|
-| title: "Representation of Political Influencers in U.S. Newspapers Topic Modeling" |
-| author: "Shahariar Nobel" |
-| date: '2026-11-21' |
-| format: html |
+---
+title: "Representation of Political Influencers in U.S. Newspapers"
+author: "Shahariar Nobel"
+date: '2026-11-21'
+format: html
+---
 
-This page is a visual summary of a topic modeling (LDA) analysis identifying the main themes in U.S. news coverage of political social media influencers. The analysis is based on a pilot subset of a larger 3,108-article corpus of 1,384 English-language articles from 13 U.S. outlets classified as left-, center-, or right-leaning by AllSides. The articles were retrieved from NexisUni using searches combining influencer-related and political terms.
+This page is a visual summary of a topic modeling (LDA) analysis identifying the main themes in U.S. news coverage of political social media influencers. The analysis is based on a pilot subset of a larger 3,108-article corpus of 1,384 English-language articles from 10 U.S. outlets classified as left-, center-, or right-leaning by AllSides. The articles were retrieved from NexisUni using searches combining influencer-related and political terms.
 
-Steps completed for the topic modeling: 
+# Steps completed for the topic modeling
+
 Imported the NexisUni articles and removed duplicate or unmatched records.
 Split the articles into text segments and created a corpus object.
 Cleaned the text: lowercasing, removing stopwords and punctuation, and stemming.
@@ -16,6 +17,12 @@ Fit an LDA model with 6 topics (Gibbs sampling, seed = 9161, 500 iterations, alp
 Examined the top terms for each topic and assigned provisional labels.
 Calculated topic proportions by year.
 Validated the labels by reading the source articles most associated with each topic.
+
+# AI Disclosure
+
+I used Claude Code (Anthropic) to help me import my large dataset and publish this project on GitHub. With Claude's help, I took the CSV out of my unpushed commits and added it to .gitignore, which keeps the data off GitHub.
+
+When importing data, I found that OSF was not an option because, as of November 16, 2026, OSF no longer allows new projects. Instead, I used Dropbox and followed Prof. Wells' code, which reads the data from a Dropbox link set to dl=1 for direct download. Claude also suggested increasing R's download timeout, since the default 60 seconds can interrupt large file downloads. 
 
 ```{r include=FALSE}
 # set options
@@ -68,6 +75,8 @@ pol_influ <- read_csv(tmp)
 
 # 5. Delete the temporary file (the data stays loaded in R's memory)
 unlink(tmp)
+
+# AI Disclosure: 
 ```
 
 
@@ -122,10 +131,10 @@ textdata <- textdata[sel_idx, ]
 
 ```
 
-Articles per year
+# Articles per year
 
 ```{r}
-#| echo: false
+#| echo: true
 #install.packages("formattable")
 articles_years <- textdata %>% 
   distinct(doc_id, .keep_all=TRUE) %>% 
@@ -143,10 +152,6 @@ articles_years %>%
   column_spec(2, width = "5em") %>% 
   column_spec(3, width = "5em", background = "yellow")
 
-
-
-#Fact check total number of unique articles
-#sum(articles_years$n)
 ```
 
 ```{r tm12}
@@ -274,7 +279,6 @@ topic6
 
 ```
 
-Topic 1: trump said presid state hous feder administr law elect govern/ Topic 2: think know peopl like end video just want get clip/ Topic 3: said “ polit ’s — peopl like trump one word/ Topic 4: new time york media post social polit campaign influenc right/ Topic 5: news fox thank right now bodi presid well iran yes/ Topic 6: democrat republican trump elect parti voter senat presid state campaign/
 
 ```{r}
 #| include: false
@@ -428,11 +432,70 @@ head(elections_campaigns$story_id, 20)
 # Checks out
 ```
 
+
+```{r}
+#| include: false
+articles_outlet <- pol_influ %>% 
+  filter(filename %in% textdata$doc_id) %>% 
+  distinct(filename, .keep_all=TRUE) %>% 
+  count(publication_4) %>% 
+  arrange(desc(n))
+
+articles_outlet
+
+```
+
+# Articles by outlet
+
+```{r}
+#| echo: true
+articles_outlet %>% 
+  ggplot(aes(x = reorder(publication_4, n), y = n, fill=n)) + 
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  coord_flip() +    #this makes it a horizontal bar chart instead of vertical
+  labs(title = "Outlets Covering Political Social Media Influencers", 
+       subtitle = "NexisUni pilot sample, 2018-2026",
+       caption = "Graphic by Shahariar Nobel, 11-21-2026",
+       y="Number of Articles",
+       x="Outlet")
+```
+
+# Figure: Top terms per topic
+
+Topic 1: trump said presid state hous feder administr law elect govern/ Topic 2: think know peopl like end video just want get clip/ Topic 3: said “ polit ’s — peopl like trump one word/ Topic 4: new time york media post social polit campaign influenc right/ Topic 5: news fox thank right now bodi presid well iran yes/ Topic 6: democrat republican trump elect parti voter senat presid state campaign/
+
+```{r}
+#| echo: true
+# AI Disclosure: This code was adjusted with the help of Claude
+
+topic_labels <- c("Trump Administration", "Political Broadcast", "Political Culture",
+                  "Digital Politics", "Political News", "Elections and Campaigns")
+
+topic_terms <- tidy(topicModel2, matrix = "beta") %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 10) %>%
+  ungroup() %>%
+  mutate(topic_label = factor(topic_labels[topic], levels = topic_labels),
+         term = reorder_within(term, beta, topic_label))
+
+topic_terms %>% 
+  ggplot(aes(x = term, y = beta, fill = beta)) + 
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  coord_flip() +
+  scale_x_reordered() +
+  facet_wrap(~ topic_label, scales = "free_y") +
+  labs(title = "Top 10 Terms per Topic", 
+       subtitle = "LDA, K = 6, NexisUni pilot sample",
+       caption = "Graphic by Shahariar Nobel, 11-21-2026",
+       y="Probability of term in topic (beta)",
+       x="")
+```
+
 # Figure: political influencer topics by year
 
 ```{r}
 #| label: Political influencer topics by year
-#| echo: false
+#| echo: true
 # plot topic proportions per year as bar plot
 ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
   geom_bar(stat = "identity") + ylab("proportion") + 
@@ -451,6 +514,4 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
   labs(title = "Common Topics in Political Social Media Influencer News Coverage",
        subtitle = "Six probable topics in the news sample",
        caption = "Aggregate mean topic proportions per year. Graphic by Shahariar Nobel, 11--2026")
-
-# ggsave(here::here("../lynching_press/output_images_tables/Article_Images/Figure_15_white_topics_oct_19_2024.png"),device = "png",width=9,height=6, dpi=800)
 ```
